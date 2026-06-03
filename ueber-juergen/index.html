@@ -87,6 +87,31 @@
           { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://gehrkebauberatung.de/" },
           { "@type": "ListItem", "position": 2, "name": "Über mich", "item": "https://gehrkebauberatung.de/ueber-juergen/" }
         ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Welche Aufgaben übernimmt ein Baubetreuer?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Ein Baubetreuer stimmt sich mit Architekten, Statikern, Handwerkern und Behörden ab. Dabei übernehme ich Aufgaben wie die Planung der Maßnahmen, das Einholen von Angeboten, Begehungen, die Terminkoordinierung und die Kontrolle der ausgeführten Arbeiten — damit Ihr Bauvorhaben reibungslos und in Ihrem Sinne läuft." }
+          },
+          {
+            "@type": "Question",
+            "name": "Warum nicht gleich selbst den Handwerker beauftragen?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Welchen Handwerker brauchen Sie für Ihr Problem eigentlich? Stimmt der Preis? Ist alles fachgerecht ausgeführt? Damit Sie die Gewissheit haben, dass diese Fragen allesamt beantwortet sind, dafür bin ich da." }
+          },
+          {
+            "@type": "Question",
+            "name": "Arbeiten Sie für die Handwerker oder für mich?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Ich möchte, dass Sie mit Ihrer Immobilie glücklich werden. Als unabhängiger Experte bin ich Ihr Partner und handle ausschließlich in Ihrem Interesse. Ich erhalte keine Provisionen o. Ä. von meinen Partnern." }
+          },
+          {
+            "@type": "Question",
+            "name": "Machen Sie auch kleinere Projekte?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Natürlich. Auch ein Anbau oder eine kleinere Sanierung braucht eine gute Organisation. Wenn ein Projekt zu klein für eine vollständige Betreuung ist, kann auch eine einfache Beratung ausreichend sein." }
+          }
+        ]
       }
     ]
   }
@@ -436,6 +461,32 @@
     .testimonial-author { font-size: 12px; color: var(--stone-light); letter-spacing: 0.04em; }
     .testimonial-author strong { color: rgba(255,255,255,0.6); font-weight: 500; display: block; margin-bottom: 2px; }
 
+    /* ── FAQ ── */
+    .faq-section { background: var(--warm-white); }
+    .faq-header { margin-bottom: 40px; }
+    .faq-list { max-width: 840px; }
+    .faq-item { border-bottom: 1px solid var(--stone-light); }
+    .faq-item:first-of-type { border-top: 1px solid var(--stone-light); }
+    .faq-item summary {
+      list-style: none; cursor: pointer;
+      padding: 24px 0; display: flex; align-items: center; justify-content: space-between; gap: 24px;
+      font-family: var(--serif); font-size: 17px; line-height: 1.4; color: var(--navy); font-weight: 400;
+      transition: color 0.2s;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary:hover { color: var(--accent); }
+    .faq-toggle { flex-shrink: 0; position: relative; width: 18px; height: 18px; }
+    .faq-toggle::before, .faq-toggle::after {
+      content: ''; position: absolute; background: var(--accent);
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+      transition: transform 0.25s, opacity 0.25s;
+    }
+    .faq-toggle::before { width: 18px; height: 2px; }
+    .faq-toggle::after { width: 2px; height: 18px; }
+    .faq-item[open] .faq-toggle::after { transform: translate(-50%, -50%) rotate(90deg); opacity: 0; }
+    .faq-answer { padding: 0 0 26px; max-width: 720px; }
+    .faq-answer p { font-size: 14px; line-height: 1.82; color: var(--text-mid); font-weight: 300; }
+
     /* ── KONTAKT CTA ── */
     .kontakt-cta { background:var(--cream); text-align:center; padding:88px 10vw; }
     .kontakt-cta .section-eyebrow { justify-content:center; }
@@ -707,6 +758,40 @@
       <strong>Bruno P.</strong>
       Immobilieninvestor, Karlsruhe
     </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="faq-header">
+    <p class="section-eyebrow">Häufige Fragen</p>
+    <h2 class="section-headline">Was Bauherren oft fragen</h2>
+  </div>
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary>Welche Aufgaben übernimmt ein Baubetreuer?<span class="faq-toggle"></span></summary>
+      <div class="faq-answer">
+        <p>Ein Baubetreuer stimmt sich mit Architekten, Statikern, Handwerkern und Behörden ab. Dabei übernehme ich Aufgaben wie die Planung der Maßnahmen, das Einholen von Angeboten, Begehungen, die Terminkoordinierung und die Kontrolle der ausgeführten Arbeiten — damit Ihr Bauvorhaben reibungslos und in Ihrem Sinne läuft.</p>
+      </div>
+    </details>
+    <details class="faq-item">
+      <summary>Warum nicht gleich selbst den Handwerker beauftragen?<span class="faq-toggle"></span></summary>
+      <div class="faq-answer">
+        <p>Welchen Handwerker brauchen Sie für Ihr Problem eigentlich? Stimmt der Preis? Ist alles fachgerecht ausgeführt? Damit Sie die Gewissheit haben, dass diese Fragen allesamt beantwortet sind, dafür bin ich da.</p>
+      </div>
+    </details>
+    <details class="faq-item">
+      <summary>Arbeiten Sie für die Handwerker oder für mich?<span class="faq-toggle"></span></summary>
+      <div class="faq-answer">
+        <p>Ich möchte, dass Sie mit Ihrer Immobilie glücklich werden. Als unabhängiger Experte bin ich Ihr Partner und handle ausschließlich in Ihrem Interesse. Ich erhalte keine Provisionen o. Ä. von meinen Partnern.</p>
+      </div>
+    </details>
+    <details class="faq-item">
+      <summary>Machen Sie auch kleinere Projekte?<span class="faq-toggle"></span></summary>
+      <div class="faq-answer">
+        <p>Natürlich. Auch ein Anbau oder eine kleinere Sanierung braucht eine gute Organisation. Wenn ein Projekt zu klein für eine vollständige Betreuung ist, kann auch eine einfache Beratung ausreichend sein.</p>
+      </div>
+    </details>
   </div>
 </section>
 
