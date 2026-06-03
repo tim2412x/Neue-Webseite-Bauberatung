@@ -130,15 +130,17 @@
 
     /* ── PAGE HERO ── */
     .page-hero {
-      padding-top: 64px;
       background: var(--navy);
       display: grid;
       grid-template-columns: 1fr 420px;
       min-height: 580px;
+      overflow: hidden;
+      position: relative;
     }
     .page-hero-content {
-      padding: 80px 10vw 80px;
+      padding: 144px 10vw 80px;
       display: flex; flex-direction: column; justify-content: center;
+      position: relative; z-index: 2;
     }
     .page-hero-eyebrow {
       font-size: 11px; font-weight: 500; letter-spacing: 0.2em;
@@ -192,13 +194,22 @@
     .credential-label { font-size: 11.5px; color: rgba(255,255,255,0.44); letter-spacing: 0.03em; }
     @media (max-width: 860px) {
       .page-hero { grid-template-columns: 1fr; }
-      .page-hero-photo { min-height: 360px; }
-      .page-hero-content { padding: 60px 6vw 60px; }
+      .page-hero-photo { min-height: 460px; order: -1; }
+      .page-hero-photo img { object-position: center 20%; }
+      .page-hero-content { padding: 48px 6vw 56px; }
+    }
+    @media (max-width: 560px) {
+      .credentials-bar { flex-wrap: wrap; }
+      .credential-item { flex: 0 0 50%; border-bottom: 1px solid rgba(255,255,255,0.07); }
+      .credential-item:nth-child(2) { border-right: none; }
+      .credential-item:nth-child(3), .credential-item:nth-child(4) { border-bottom: none; }
     }
 
     /* ── STORY ── */
     .story-section { background: var(--warm-white); }
-    .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .story-header { margin-bottom: 52px; }
+    .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .story-facts { padding-top: 8px; }
     .story-text p {
       font-size: 15px; line-height: 1.85; color: var(--text-mid);
       font-weight: 300; margin-bottom: 22px;
@@ -428,11 +439,13 @@
 
 <!-- STORY -->
 <section class="story-section">
+  <div class="story-header">
+    <p class="section-eyebrow">Meine Geschichte</p>
+    <h2 class="section-headline">Vom Zimmermannsmeister zum Baubetreuer</h2>
+  </div>
   <div class="story-grid">
     <div class="story-text">
-      <p class="section-eyebrow">Meine Geschichte</p>
-      <h2 class="section-headline">Vom Zimmermanns&shy;meister<br>zum Baubetreuer</h2>
-<p>Seit 1994 bin ich in der Baubranche selbständig tätig. Als Zimmermannsmeister habe ich mit meinem Team <strong>über 500 Projekte</strong> realisiert — von der Dachsanierung eines denkmalgeschützten Fachwerkhauses bis zum Großprojekt wie dem Optima Sportpark in Schwäbisch Hall.</p>
+      <p>Seit 1994 bin ich in der Baubranche selbständig tätig. Als Zimmermannsmeister habe ich mit meinem Team <strong>über 500 Projekte</strong> realisiert — von der Dachsanierung eines denkmalgeschützten Fachwerkhauses bis zum Großprojekt wie dem Optima Sportpark in Schwäbisch Hall.</p>
       <p>Was mich zum Bauberater gemacht hat, ist genau diese Praxis. Ich weiß, was auf einer Baustelle wirklich passiert. Ich erkenne Fehler, bevor sie teuer werden — nicht aus Büchern, sondern aus eigener Erfahrung. Und ich spreche die Sprache der Handwerker, was mir auf jeder Baustelle einen entscheidenden Vorteil verschafft.</p>
       <p>Heute arbeite ich <strong>ausschließlich als unabhängiger Baubetreuer</strong> — ohne Provisionen, ohne versteckte Interessen. Mein einziger Auftraggeber sind Sie.</p>
     </div>
