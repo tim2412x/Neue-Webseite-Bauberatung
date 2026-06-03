@@ -175,10 +175,15 @@
       object-fit: cover; object-position: top center;
       display: block;
     }
+    /* blendet beide Seitenkanten ins Navy – links in den Text, rechts in die Navy-Gutter; verhindert weißen Foto-Rand */
     .page-hero-photo::before {
       content: '';
       position: absolute; inset: 0;
-      background: linear-gradient(to right, rgba(13,28,42,0.35) 0%, transparent 50%);
+      background: linear-gradient(to right,
+        rgba(13,28,42,0.55) 0%,
+        rgba(13,28,42,0) 28%,
+        rgba(13,28,42,0) 86%,
+        var(--navy) 100%);
       z-index: 1;
     }
     /* blendet den hellen Foto-Hintergrund unten ins Navy – verhindert weißen Rand bei jeder Breite */
