@@ -412,40 +412,48 @@
       .timeline-year { width: 60px; font-size: 11px; }
     }
 
-    /* ── WERTE ── */
-    .werte-section { background: var(--cream); }
-    .werte-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--stone-light); margin-top: 48px; }
-    .wert-card {
-      background: var(--warm-white); padding: 36px 28px;
+    /* ── WERTE & ENGAGEMENT – einheitliches Karten-System ── */
+    .werte-section, .engagement-section { background: var(--warm-white); }
+    .werte-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+    .engagement-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 48px; }
+
+    /* gemeinsame Karte */
+    .wert-card, .engagement-card {
+      background: var(--cream);
+      border: 1px solid var(--stone-light);
+      padding: 34px 30px;
       display: flex; flex-direction: column;
       position: relative;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
     }
-    .wert-card::after {
-      content:''; position:absolute; top:0; left:0; right:0;
-      height:3px; background: var(--accent);
+    .wert-card::before, .engagement-card::before {
+      content:''; position:absolute; top:-1px; left:-1px;
+      width: 46px; height: 3px; background: var(--accent);
     }
+    .wert-card:hover, .engagement-card:hover {
+      border-color: var(--accent); transform: translateY(-3px);
+      box-shadow: 0 14px 34px rgba(13,28,42,0.08);
+    }
+    /* einheitliches Icon-/Index-Motiv */
     .wert-num {
-      font-size: 11px; font-weight: 600; color: var(--accent);
-      letter-spacing: 0.08em; margin-bottom: 16px;
+      font-size: 12px; font-weight: 600; color: var(--accent);
+      letter-spacing: 0.08em; margin-bottom: 18px;
     }
-    .wert-title {
-      font-family: var(--serif); font-size: 19px; color: var(--navy);
-      margin-bottom: 12px; line-height: 1.25; font-weight: 400;
+    .eng-icon {
+      width: 40px; height: 40px; margin-bottom: 18px; flex-shrink: 0;
+      border: 1px solid var(--stone-light); background: var(--warm-white);
+      display: flex; align-items: center; justify-content: center; color: var(--accent);
     }
-    .wert-text { font-size: 13.5px; line-height: 1.75; color: var(--text-mid); font-weight: 300; flex: 1; }
-    @media (max-width: 760px) { .werte-grid { grid-template-columns: 1fr; } }
-
-    /* ── ENGAGEMENT ── */
-    .engagement-section { background: var(--warm-white); }
-    .engagement-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 48px; }
-    .engagement-card {
-      background: var(--cream); padding: 32px 28px;
-      border-left: 3px solid var(--accent);
-      display: flex; flex-direction: column; gap: 10px;
+    .eng-icon svg { width: 19px; height: 19px; }
+    .wert-title, .engagement-card h4 {
+      font-family: var(--serif); font-size: 18px; color: var(--navy);
+      margin-bottom: 12px; line-height: 1.3; font-weight: 400;
     }
-    .engagement-card h4 { font-family: var(--serif); font-size: 17px; color: var(--navy); font-weight: 400; }
-    .engagement-card p { font-size: 13px; line-height: 1.72; color: var(--text-mid); font-weight: 300; }
-    @media (max-width: 640px) { .engagement-grid { grid-template-columns: 1fr; gap: 16px; } }
+    .wert-text, .engagement-card p {
+      font-size: 13.5px; line-height: 1.75; color: var(--text-mid); font-weight: 300; flex: 1;
+    }
+    @media (max-width: 860px) { .werte-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .engagement-grid { grid-template-columns: 1fr; } }
 
     /* ── TESTIMONIAL ── */
     .testimonial-section { background: var(--navy); padding: 88px 10vw; }
@@ -731,18 +739,30 @@
   <p class="section-sub">Meine Mandate und mein Netzwerk geben Ihnen Zugang zu Informationen und Kontakten, die kein externer Berater hat.</p>
   <div class="engagement-grid">
     <div class="engagement-card">
+      <div class="eng-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="21" x2="21" y2="21"/><path d="M5 21V8l7-4 7 4v13"/><path d="M9 21v-5h6v5"/></svg>
+      </div>
       <h4>Mitglied im Bau- und Planungsausschuss der Stadt Schwäbisch Hall</h4>
       <p>Direkter Einblick in Bebauungspläne, kommunale Bauleitplanung und regionale Bauvorschriften — ein Wissensvorsprung, den ich für Sie nutze.</p>
     </div>
     <div class="engagement-card">
+      <div class="eng-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+      </div>
       <h4>Ehemaliger Vorstand der Zimmererinnung</h4>
       <p>Jahrelange Mitgestaltung von Handwerksstandards und -ausbildung in der Region. Ich kenne die guten Betriebe — und die anderen.</p>
     </div>
     <div class="engagement-card">
+      <div class="eng-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h18"/><path d="M5 10V7l7-3 7 3v3"/><path d="M4 21v-6a8 8 0 0 1 16 0v6"/><line x1="12" y1="13" x2="12" y2="21"/></svg>
+      </div>
       <h4>Restaurierung denkmalgeschützter Brücken (Hohenlohe)</h4>
       <p>Spezialisierte Erfahrung im Umgang mit historischer Bausubstanz und den besonderen Anforderungen von Denkmalschutz-Projekten.</p>
     </div>
     <div class="engagement-card">
+      <div class="eng-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.2"/><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><path d="M10.3 10.6 6.5 7.2M13.7 10.6l3.8-3.4M10.3 13.4l-3.8 3.4M13.7 13.4l3.8 3.4"/></svg>
+      </div>
       <h4>Gewachsenes Handwerkernetzwerk seit 1994</h4>
       <p>Über 30 Jahre persönliche Beziehungen zu Handwerkern, Ingenieuren und Architekten in der Region — für schnelle, zuverlässige Empfehlungen wenn Sie sie brauchen.</p>
     </div>
