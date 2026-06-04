@@ -12,19 +12,22 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Install lftp
+        run: sudo apt-get install -y lftp
+
       - name: Deploy via SFTP to Ionos
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-        with:
-          protocol: sftp
-          server: ${{ secrets.FTP_SERVER }}
-          port: 22
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: /
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/.claude/**
-            **/CLAUDE.md
-            **/.DS_Store
-            .nojekyll
+        run: |
+          lftp -c "
+            set sftp:auto-confirm yes
+            set net:max-retries 3
+            open sftp://${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}@${{ secrets.FTP_SERVER }}
+            mirror --reverse --delete --parallel=4 \
+              --exclude-glob=.git \
+              --exclude-glob=.github \
+              --exclude-glob=.claude \
+              --exclude-glob=.DS_Store \
+              --exclude=CLAUDE.md \
+              --exclude=.nojekyll \
+              . /
+            quit
+          "
