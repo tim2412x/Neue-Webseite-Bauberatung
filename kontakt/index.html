@@ -291,6 +291,14 @@
     }
     .form-success p { font-size: 14px; color: var(--text-mid); line-height: 1.6; }
     .form-success strong { color: var(--text); }
+    .form-error {
+      display: none;
+      background: var(--cream); border-left: 3px solid #a63a2f;
+      padding: 20px 24px; margin-top: 8px;
+    }
+    .form-error p { font-size: 14px; color: var(--text-mid); line-height: 1.6; }
+    .form-error a { color: var(--accent); text-decoration: none; }
+    .form-error a:hover { text-decoration: underline; }
 
     /* ── SIDEBAR ── */
     .contact-sidebar { display: flex; flex-direction: column; gap: 24px; }
@@ -493,6 +501,7 @@
   <a class="indent" href="/baubetreuung/">↳ Baubetreuung</a>
   <a class="indent" href="/bauberatung/">↳ Bauberatung</a>
   <a class="indent" href="/denkmalsanierung/">↳ Betreuung Denkmalsanierung</a>
+  <a class="indent" href="/bauprojektmanagement/">↳ Bauprojektmanagement</a>
   <a href="/ueber-juergen/">Über mich</a>
   <a href="/#referenzen">Referenzen</a>
   <a href="/kontakt/">Kontakt →</a>
@@ -515,15 +524,21 @@
       <h2 class="section-headline">Schreiben Sie mir</h2>
       <p class="form-intro">Ich antworte werktags innerhalb von 24 Stunden — meistens schneller. Für dringende Anfragen empfehle ich den WhatsApp-Kontakt.</p>
 
-      <form class="contact-form" id="contactForm" novalidate>
+      <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="7a0fff57-6e74-46a7-8ca1-c21e5caff109">
+        <input type="hidden" name="subject" value="Neue Anfrage über die Website">
+        <input type="hidden" name="from_name" value="Gehrke Bauberatung – Website">
+        <!-- Honeypot gegen Spam-Bots: für Menschen unsichtbar -->
+        <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off">
+
         <div class="form-row">
           <div class="form-group">
             <label for="vorname">Vorname *</label>
-            <input type="text" id="vorname" name="vorname" placeholder="Max" required autocomplete="given-name">
+            <input type="text" id="vorname" name="Vorname" placeholder="Max" required autocomplete="given-name">
           </div>
           <div class="form-group">
             <label for="nachname">Nachname *</label>
-            <input type="text" id="nachname" name="nachname" placeholder="Mustermann" required autocomplete="family-name">
+            <input type="text" id="nachname" name="Nachname" placeholder="Mustermann" required autocomplete="family-name">
           </div>
         </div>
 
@@ -534,13 +549,13 @@
           </div>
           <div class="form-group">
             <label for="telefon">Telefonnummer</label>
-            <input type="tel" id="telefon" name="telefon" placeholder="+49 172 …" autocomplete="tel">
+            <input type="tel" id="telefon" name="Telefon" placeholder="+49 172 …" autocomplete="tel">
           </div>
         </div>
 
         <div class="form-group">
           <label for="leistung">Worum geht es? *</label>
-          <select id="leistung" name="leistung" required>
+          <select id="leistung" name="Leistung" required>
             <option value="" disabled selected>Bitte auswählen …</option>
             <option value="Baubetreuung">Baubetreuung (Neubau / Sanierung)</option>
             <option value="Bauberatung">Bauberatung (einmalige Beratung)</option>
@@ -551,7 +566,7 @@
 
         <div class="form-group">
           <label for="nachricht">Ihr Anliegen *</label>
-          <textarea id="nachricht" name="nachricht" placeholder="Kurze Beschreibung Ihres Vorhabens — Ort, Art des Gebäudes, was genau Sie beschäftigt …" required></textarea>
+          <textarea id="nachricht" name="Nachricht" placeholder="Kurze Beschreibung Ihres Vorhabens — Ort, Art des Gebäudes, was genau Sie beschäftigt …" required></textarea>
         </div>
 
         <p class="form-privacy">
@@ -563,6 +578,9 @@
 
         <div class="form-success" id="formSuccess">
           <p><strong>Nachricht erhalten!</strong> Ich melde mich so schnell wie möglich bei Ihnen. Für dringende Fragen erreichen Sie mich direkt per WhatsApp unter +49 172 7410650.</p>
+        </div>
+        <div class="form-error" id="formError">
+          <p>Da ist leider etwas schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie direkt an <a href="mailto:info@gehrkebauberatung.de">info@gehrkebauberatung.de</a>.</p>
         </div>
       </form>
     </div>
@@ -712,38 +730,41 @@ document.addEventListener('click', function(e) {
   }
 });
 
-document.getElementById('contactForm').addEventListener('submit', function(e) {
+/* ── Kontaktformular: Versand über Web3Forms (ohne Seitenwechsel) ── */
+document.getElementById('contactForm').addEventListener('submit', function (e) {
   e.preventDefault();
 
-  const form = e.target;
-  const vorname   = form.vorname.value.trim();
-  const nachname  = form.nachname.value.trim();
-  const email     = form.email.value.trim();
-  const leistung  = form.leistung.value;
-  const nachricht = form.nachricht.value.trim();
+  var form    = e.target;
+  var btn     = form.querySelector('.btn-submit');
+  var success = document.getElementById('formSuccess');
+  var error   = document.getElementById('formError');
 
-  if (!vorname || !nachname || !email || !leistung || !nachricht) {
-    alert('Bitte füllen Sie alle Pflichtfelder aus.');
-    return;
-  }
+  error.style.display = 'none';
+  btn.disabled = true;
+  var originalText = btn.textContent;
+  btn.textContent = 'Wird gesendet …';
 
-  const subject = encodeURIComponent('Anfrage via Website: ' + leistung);
-  const body = encodeURIComponent(
-    'Guten Tag,\n\n' +
-    'Name: ' + vorname + ' ' + nachname + '\n' +
-    'E-Mail: ' + email + '\n' +
-    (form.telefon.value.trim() ? 'Telefon: ' + form.telefon.value.trim() + '\n' : '') +
-    'Leistung: ' + leistung + '\n\n' +
-    'Nachricht:\n' + nachricht + '\n\n' +
-    'Mit freundlichen Grüßen\n' + vorname + ' ' + nachname
-  );
-
-  window.location.href = 'mailto:info@gehrkebauberatung.de?subject=' + subject + '&body=' + body;
-
-  document.getElementById('formSuccess').style.display = 'block';
-  form.reset();
-  form.querySelector('.btn-submit').textContent = 'Gesendet ✓';
-  form.querySelector('.btn-submit').disabled = true;
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Accept': 'application/json' },
+    body: new FormData(form)
+  })
+  .then(function (res) { return res.json(); })
+  .then(function (json) {
+    if (json.success) {
+      form.reset();
+      success.style.display = 'block';
+      btn.textContent = 'Gesendet ✓';
+      success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else {
+      throw new Error(json.message || 'Fehler beim Senden');
+    }
+  })
+  .catch(function () {
+    error.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = originalText;
+  });
 });
 </script>
 <script src="/cookie-consent.js" defer></script>

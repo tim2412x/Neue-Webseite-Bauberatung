@@ -10,18 +10,36 @@
 
   var STORAGE_KEY = 'gehrke_cookie_consent';
   var CONSENT_VERSION = 1;
+  var GA_ID = 'G-YVNLWQEK03';
 
   /* ---------- Consent anwenden (GA-Hook) ---------- */
   function applyConsent(consent) {
-    if (consent && consent.analytics) loadAnalytics();
+    if (consent && consent.analytics) {
+      window['ga-disable-' + GA_ID] = false;
+      loadAnalytics();
+    } else {
+      /* Bei Ablehnung/Widerruf: Tracking deaktivieren (Googles Opt-out-Flag).
+         Wirkt auch, wenn gtag in dieser Sitzung bereits geladen wurde. */
+      window['ga-disable-' + GA_ID] = true;
+    }
   }
 
   function loadAnalytics() {
     if (window.__gehrkeAnalyticsLoaded) return;
     window.__gehrkeAnalyticsLoaded = true;
-    /* TODO: Google Analytics hier laden, sobald gewünscht
-       (empfohlen via Google Consent Mode v2 / gtag.js).
-       Aktuell bewusst leer — es wird noch kein Tracking aktiviert. */
+
+    /* Google Analytics 4 (gtag.js) — wird ausschließlich nach
+       ausdrücklicher Einwilligung über applyConsent() geladen. */
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { window.dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', GA_ID, { anonymize_ip: true });
   }
 
   /* ---------- Speicherung ---------- */
