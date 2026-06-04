@@ -20,16 +20,21 @@ Diese Datei ist das verbindliche Regelwerk für alle Änderungen an der Website.
 ## Seitenstruktur
 
 ```
-/                          → index.html        (Startseite / Landing Page)
+/                          → index.html                    (Startseite / Landing Page)
 /ueber-juergen/            → ueber-juergen/index.html
 /baubetreuung/             → baubetreuung/index.html
 /bauberatung/              → bauberatung/index.html
-/bauabnahme/               → bauabnahme/index.html
+/bauprojektmanagement/     → bauprojektmanagement/index.html (Kommunen, Bauträger, WEGs)
+/denkmalsanierung/         → denkmalsanierung/index.html
 /referenzen/               → referenzen/index.html
 /kontakt/                  → kontakt/index.html
 /impressum/                → impressum/index.html
 /datenschutz/              → datenschutz/index.html
+/agb/                      → agb/index.html
+/hausverwaltung/           → hausverwaltung/index.html      (Redirect → /bauprojektmanagement/)
 ```
+
+**HINWEIS:** `/bauabnahme/` wurde als Produkt entfernt. Die Seite existiert noch als Datei, ist aber nirgends verlinkt und nicht im Sitemap.
 
 Jede neue Seite = eigener Ordner mit `index.html` darin.
 Verlinkungen immer mit trailing slash: `href="/baubetreuung/"`.
@@ -169,8 +174,8 @@ Aktive Seite: `class="active"` am entsprechenden `<a>`-Tag → zeigt orangen Unt
       <div class="nav-dropdown">
         <a href="/baubetreuung/">Baubetreuung</a>
         <a href="/bauberatung/">Bauberatung</a>
-        <a href="/bauabnahme/">Bauabnahme</a>
-        <a href="/hausverwaltung/">Hausverwaltungen &amp; WEGs</a>
+        <a href="/bauprojektmanagement/">Bauprojektmanagement</a>
+        <a href="/denkmalsanierung/">Betreuung Denkmalsanierung</a>
       </div>
     </li>
     <li><a href="/ueber-juergen/" [class="active"]>Über mich</a></li>
@@ -187,7 +192,8 @@ Aktive Seite: `class="active"` am entsprechenden `<a>`-Tag → zeigt orangen Unt
   <a href="/baubetreuung/">Leistungen</a>
   <a class="indent" href="/baubetreuung/">↳ Baubetreuung</a>
   <a class="indent" href="/bauberatung/">↳ Bauberatung</a>
-  <a class="indent" href="/bauabnahme/">↳ Bauabnahme</a>
+  <a class="indent" href="/bauprojektmanagement/">↳ Bauprojektmanagement</a>
+  <a class="indent" href="/denkmalsanierung/">↳ Betreuung Denkmalsanierung</a>
   <a href="/ueber-juergen/">Über mich</a>
   <a href="/referenzen/">Referenzen</a>
   <a href="/kontakt/">Kontakt →</a>
@@ -224,8 +230,8 @@ document.addEventListener('click', function(e) {
       <h5>Leistungen</h5>
       <a href="/baubetreuung/">Baubetreuung</a>
       <a href="/bauberatung/">Bauberatung</a>
-      <a href="/bauabnahme/">Bauabnahme</a>
-      <a href="/hausverwaltung/">Hausverwaltungen &amp; WEGs</a>
+      <a href="/bauprojektmanagement/">Bauprojektmanagement</a>
+      <a href="/denkmalsanierung/">Betreuung Denkmalsanierung</a>
     </div>
     <div class="footer-col">
       <h5>Unternehmen</h5>

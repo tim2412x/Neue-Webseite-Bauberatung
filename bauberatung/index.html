@@ -7,6 +7,10 @@
   <meta name="description" content="Unabhängige Bauberatung & Kaufberatung in Schwäbisch Hall, Heilbronn & Hohenlohe: Erstbegehung, Mängelbeurteilung & Zweitmeinung – damit Sie kein Risiko kaufen. Kostenloses Erstgespräch.">
   <link rel="canonical" href="https://gehrkebauberatung.de/bauberatung/">
   <meta name="theme-color" content="#0d1c2a">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="author" content="Jürgen Gehrke">
   <meta name="geo.region" content="DE-BW">
@@ -19,14 +23,16 @@
   <meta property="og:url" content="https://gehrkebauberatung.de/bauberatung/">
   <meta property="og:title" content="Bauberatung & Kaufberatung in Schwäbisch Hall, Heilbronn & Hohenlohe">
   <meta property="og:description" content="Bevor Sie kaufen oder sanieren: ein unabhängiger Blick, der Risiken erkennt, solange sie noch nichts kosten. Provisionsfrei. Kostenloses Erstgespräch.">
-  <meta property="og:image" content="https://gehrkebauberatung.de/assets/juergen-gehrke.jpg">
+  <meta property="og:image" content="https://gehrkebauberatung.de/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Jürgen Gehrke, Bauberater aus Schwäbisch Hall">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Bauberatung & Kaufberatung in Schwäbisch Hall, Heilbronn & Hohenlohe">
   <meta name="twitter:description" content="Unabhängige Bauberatung & Kaufberatung: Erstbegehung, Mängelbeurteilung & Zweitmeinung – damit Sie kein Risiko kaufen.">
-  <meta name="twitter:image" content="https://gehrkebauberatung.de/assets/juergen-gehrke.jpg">
+  <meta name="twitter:image" content="https://gehrkebauberatung.de/assets/og-image.jpg">
 
   <!-- Structured Data: ProfessionalService + Service + Breadcrumb + FAQ -->
   <script type="application/ld+json">
@@ -58,7 +64,7 @@
           { "@type": "AdministrativeArea", "name": "Hohenlohe" }
         ],
         "founder": { "@id": "https://gehrkebauberatung.de/#juergen-gehrke" },
-        "knowsAbout": ["Bauberatung", "Kaufberatung", "Baugutachter", "Mängelbeurteilung", "Sanierung", "Altbau", "Denkmalschutz"]
+        "knowsAbout": ["Bauberatung", "Kaufberatung", "Mängelbeurteilung", "Sanierung", "Altbau", "Denkmalschutz"]
       },
       {
         "@type": "Person",
@@ -138,9 +144,9 @@
   }
   </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" href="/assets/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/librebaskerville-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/fonts.css">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -473,13 +479,12 @@
       <div class="nav-dropdown">
         <a href="/baubetreuung/">Baubetreuung</a>
         <a href="/bauberatung/" class="active">Bauberatung</a>
-        <a href="/bauabnahme/">Bauabnahme</a>
-        <a href="/denkmalsanierung/">Denkmal- &amp; Altbausanierung</a>
-        <a href="/hausverwaltung/">Hausverwaltungen &amp; WEGs</a>
+        <a href="/denkmalsanierung/">Betreuung Denkmalsanierung</a>
+        <a href="/bauprojektmanagement/">Bauprojektmanagement</a>
       </div>
     </li>
     <li><a href="/ueber-juergen/">Über mich</a></li>
-    <li><a href="/referenzen/">Referenzen</a></li>
+    <li><a href="/#referenzen">Referenzen</a></li>
     <li><a href="/kontakt/">Kontakt</a></li>
   </ul>
   <a href="/kontakt/" class="nav-cta">Kostenloses Erstgespräch</a>
@@ -492,10 +497,9 @@
   <a href="/baubetreuung/">Leistungen</a>
   <a class="indent" href="/baubetreuung/">↳ Baubetreuung</a>
   <a class="indent" href="/bauberatung/">↳ Bauberatung</a>
-  <a class="indent" href="/bauabnahme/">↳ Bauabnahme</a>
-  <a class="indent" href="/denkmalsanierung/">↳ Denkmal- &amp; Altbausanierung</a>
+  <a class="indent" href="/denkmalsanierung/">↳ Betreuung Denkmalsanierung</a>
   <a href="/ueber-juergen/">Über mich</a>
-  <a href="/referenzen/">Referenzen</a>
+  <a href="/#referenzen">Referenzen</a>
   <a href="/kontakt/">Kontakt →</a>
 </div>
 
@@ -797,12 +801,8 @@
       <p>Die durchgehende Begleitung Ihres Bauvorhabens — Koordination, Qualitätskontrolle und Bauherrenvertretung.</p>
       <span>Mehr erfahren →</span>
     </a>
-    <a href="/bauabnahme/" class="cross-card">
-      <h3>Bauabnahme</h3>
-      <p>Professionelle Abnahme mit Mängelprotokoll — damit Sie wissen, was Sie unterschreiben.</p>
-      <span>Mehr erfahren →</span>
-    </a>
-    <a href="/referenzen/" class="cross-card">
+
+    <a href="/#referenzen" class="cross-card">
       <h3>Referenzen</h3>
       <p>Ausgewählte Projekte aus der Region — vom Anbau bis zur Komplettsanierung.</p>
       <span>Projekte ansehen →</span>
@@ -849,14 +849,13 @@
       <h5>Leistungen</h5>
       <a href="/baubetreuung/">Baubetreuung</a>
       <a href="/bauberatung/">Bauberatung</a>
-      <a href="/bauabnahme/">Bauabnahme</a>
-      <a href="/denkmalsanierung/">Denkmal- &amp; Altbausanierung</a>
-      <a href="/hausverwaltung/">Hausverwaltungen &amp; WEGs</a>
+      <a href="/denkmalsanierung/">Betreuung Denkmalsanierung</a>
+      <a href="/bauprojektmanagement/">Bauprojektmanagement</a>
     </div>
     <div class="footer-col">
       <h5>Unternehmen</h5>
       <a href="/ueber-juergen/">Über mich</a>
-      <a href="/referenzen/">Referenzen</a>
+      <a href="/#referenzen">Referenzen</a>
       <a href="/kontakt/">Kontakt</a>
       <address>Stauferstraße 122<br>74523 Schwäbisch Hall</address>
     </div>
@@ -866,6 +865,7 @@
     <div class="footer-legal">
       <a href="/impressum/">Impressum</a>
       <a href="/datenschutz/">Datenschutz</a>
+      <a href="/agb/">AGB</a>
     </div>
   </div>
 </footer>
@@ -881,5 +881,6 @@ document.addEventListener('click', function(e) {
   }
 });
 </script>
+<script src="/cookie-consent.js" defer></script>
 </body>
 </html>
