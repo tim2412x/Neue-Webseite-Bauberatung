@@ -28,6 +28,6 @@ jobs:
               --exclude-glob=.DS_Store \
               --exclude=CLAUDE.md \
               --exclude=.nojekyll \
-              . /
+              . /wordpress/
             quit
           "
