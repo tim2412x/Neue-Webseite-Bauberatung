@@ -10,7 +10,7 @@
 
   var STORAGE_KEY = 'gehrke_cookie_consent';
   var CONSENT_VERSION = 1;
-  var GA_ID = 'G-YVNLWQEK03';
+  var GA_ID = 'G-JZ021LWWW9';
 
   /* ---------- Consent anwenden (GA-Hook) ---------- */
   function applyConsent(consent) {
