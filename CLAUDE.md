@@ -1,336 +1,294 @@
-# CLAUDE.md — Gehrke Bauberatung Website
+# CLAUDE.md — Gehrke Bauberatung
 
-Diese Datei ist das verbindliche Regelwerk für alle Änderungen an der Website.
-**Jede neue Session beginnt damit, diese Datei zu lesen.**
+Verbindliches Regelwerk für alle Änderungen an dieser Website.
+**Jede Session beginnt damit, diese Datei zu lesen.**
+
+Das Design wurde vollständig ersetzt (Motiv „Aufnahme"). Alle früheren
+Gestaltungsregeln — Navy `#0d1c2a`, Bronze `#b8763a`, Inter, Libre Baskerville,
+feste Navigationsleiste, Karten mit Bronzelinie — **gelten nicht mehr.**
+
+---
+
+## Die drei Quellen, in dieser Rangfolge
+
+| Rang | Datei | Rolle |
+|---|---|---|
+| 1 | `_design/REDESIGN.md` | **Der Style Guide. Bei jedem Widerspruch gewinnt er.** |
+| 2 | diese Datei | Projektregeln, Umsetzung des Style Guides in diesem Repo |
+| 3 | `_design/UMBAU.md` | Arbeitsplan für den laufenden Umbau |
+| — | `_design/referenz/` | Der Prototyp aus dem Kundenpaket. **Nur Inspiration.** Sein Code, seine Texte und seine Adresse (Neuenstein) werden nicht übernommen. |
+
+Weitere Arbeitsdateien:
+
+- `_design/muster.html` — Bausteinkatalog, jeder Baustein als kopierfähiges Markup
+- `_design/inventar/*.md` — der Bestandsinhalt je Seite, verbatim
+- `_design/eyebrows.md` — Abarbeitungsliste der gestrichenen Versalzeilen
+- `_design/tools/` — Prüf- und Extraktionsskripte
 
 ---
 
 ## Projektübersicht
 
 - **Kunde:** Gehrke Bauberatung und -betreuung UG
-- **Inhaber:** Jürgen Gehrke, Zimmermannsmeister
+- **Inhaber:** Jürgen Gehrke, Zimmermeister
 - **Domain:** https://gehrkebauberatung.de
-- **Technologie:** Reines HTML/CSS/JS — kein Framework, kein Build-Tool
-- **Hosting:** GitHub Pages
-- **Repo:** [GitHub-URL eintragen]
-- **Ziel:** Conversion, lokales SEO, Vertrauen durch Persönlichkeit
+- **Technik:** reines HTML/CSS/JS. Kein Framework, kein Build-Schritt, kein Client-Routing.
+- **Hosting:** GitHub Pages (`.nojekyll`, `CNAME`)
+- **Wirkung:** nüchtern, verlässlich, handwerklich, inhabergeführt. Ausdrücklich keine Agentur-Optik.
+- **Zielgruppen:** private Bauherren 35–60 mit Sanierungs- oder Kaufvorhaben,
+  Hausverwaltungen, Architekten, Immobilieninvestoren.
 
 ---
 
 ## Seitenstruktur
 
 ```
-/                          → index.html                    (Startseite / Landing Page)
-/ueber-juergen/            → ueber-juergen/index.html
-/baubetreuung/             → baubetreuung/index.html
+/                          → index.html
 /bauberatung/              → bauberatung/index.html
-/bauprojektmanagement/     → bauprojektmanagement/index.html (Kommunen, Bauträger, WEGs)
+/baubetreuung/             → baubetreuung/index.html
+/bauprojektmanagement/     → bauprojektmanagement/index.html  (Kommunen, Bauträger, WEGs)
 /denkmalsanierung/         → denkmalsanierung/index.html
-/referenzen/               → referenzen/index.html
+/ueber-juergen/            → ueber-juergen/index.html
 /kontakt/                  → kontakt/index.html
 /impressum/                → impressum/index.html
 /datenschutz/              → datenschutz/index.html
 /agb/                      → agb/index.html
-/hausverwaltung/           → hausverwaltung/index.html      (Redirect → /bauprojektmanagement/)
+/hausverwaltung/           → Weiterleitung auf /bauprojektmanagement/
+404.html
 ```
 
-**HINWEIS:** `/bauabnahme/` wurde als Produkt entfernt. Die Seite existiert noch als Datei, ist aber nirgends verlinkt und nicht im Sitemap.
-
-Jede neue Seite = eigener Ordner mit `index.html` darin.
-Verlinkungen immer mit trailing slash: `href="/baubetreuung/"`.
+- **`/referenzen/` gibt es nicht.** Referenzen sind ein Abschnitt auf der
+  Startseite, verlinkt als `/#referenzen`. Keine eigene Seite anlegen.
+- **`/bauabnahme/` ist verwaist:** die Datei existiert, ist nirgends verlinkt
+  und nicht im Sitemap. Nicht ohne Rücksprache löschen.
+- Neue Seite = eigener Ordner mit `index.html`. Verlinkung **immer mit
+  abschließendem Schrägstrich**: `href="/baubetreuung/"`.
+- **Keine Adresse ändern.** Ändert sich doch ein Pfad, braucht er eine
+  dauerhafte Weiterleitung (301). Der Bestand rankt regional.
 
 ---
 
-## Asset-Struktur
+## Stylesheet
 
-Alle Bilder, Logos und Dokumente liegen in `/assets/`:
+**Genau ein Stylesheet: `/assets/site.css`.** Es enthält Schriften, Merkmale,
+alle Bausteine, Mobil, Fokus und Druck.
 
-```
-/assets/
-  juergen-gehrke.jpg           ← Portrait (Jürgen mit Kappe)
-  juergen-gehrke-beratung.jpg  ← Jürgen zeigt auf Fenster (Innenaufnahme)
-  juergen-gehrke-aussen.jpg    ← Jürgen vor Fachwerkhaus (Außenaufnahme)
-  juergen-gehrke-dach.jpg      ← Jürgen zeigt auf Deckenbalken
-  bauplan-tablet.jpg           ← Baupläne auf Tisch mit Haftnotizen
-  projektplanung.jpg           ← Hände über Bauplänen
-  logo-dark.png                ← Logo weiß auf Navy (#0d1c2a)
-  logo-light.png               ← Logo schwarz auf weiß
-  logo-small.png               ← Kleines Logo für Nav / Favicon
-  referenz-anbau.jpg           ← Fachwerkhaus + moderner Anbau
-  referenz-poolhaus.jpg        ← Poolhaus innen mit Holzkonstruktion
-  partner-drechsler.jpg
-  partner-burk.jpg
-  partner-strecker.jpg
-  partner-podstawek.jpg
-  partner-augsten.jpg
+```html
+<link rel="stylesheet" href="/assets/site.css">
 ```
 
-**Neue Bilder** immer in `/assets/` ablegen, Dateiname lowercase mit Bindestrichen.
-Bilder nie in Unterordner — alle flat in `/assets/`.
+- **Keine `<style>`-Blöcke in Seiten.** Keine `style="…"`-Attribute im Markup.
+  Einzige Ausnahme wären echte Laufzeitwerte — die gibt es hier nicht.
+- Kein CSS-Framework, keine externe CDN-Abhängigkeit.
+- Braucht eine Seite etwas, das es noch nicht gibt: **Klasse in `site.css`
+  ergänzen**, nicht inline schreiben.
 
 ---
 
-## Design-System (VERBINDLICH — nie abweichen)
+## Merkmale (Design-Tokens)
 
-### Farben (CSS Custom Properties)
+Genau vier Farben. Keine Zwischenstufen erfinden, keine fünfte Farbe hinzufügen.
 
 ```css
-:root {
-  --navy:        #0d1c2a;   /* Primärhintergrund dunkel */
-  --navy-mid:    #162534;   /* Dropdown, Karten auf Navy */
-  --navy-light:  #1e3347;   /* Hover-Zustände auf Navy */
-  --cream:       #f4efe6;   /* Karten-Hintergrund, Zitat-Boxen */
-  --warm-white:  #f9f6f1;   /* Haupt-Seiten-Hintergrund */
-  --stone:       #857d70;   /* Sekundäre Icons, dekorative Elemente */
-  --stone-light: #c4bbb0;   /* Borders auf hellen Flächen */
-  --accent:      #b8763a;   /* Primäre Akzentfarbe (Bronze/Amber) */
-  --accent-h:    #c4854a;   /* Hover-State des Akzents */
-  --text:        #18140f;   /* Primärer Body-Text */
-  --text-mid:    #46403a;   /* Sekundärer Text, Fließtext */
-  --serif: 'Libre Baskerville', Georgia, serif;
-  --sans:  'Inter', system-ui, sans-serif;
+:root{
+  --grund:#F7F5F0;   /* Seitenhintergrund */
+  --flaeche:#E8E2D6; /* abgesetzte Abschnitte, Fußband */
+  --text:#17171A;    /* Text, Linien, Rahmen */
+  --akzent:#8A3B12;  /* Randziffern, Links, primäre Handlungsaufforderung */
 }
 ```
 
-**Wichtig:** `--accent` (#b8763a) ist IMMER die Akzentfarbe. Nie durch Blau, Grün o.ä. ersetzen.
+Erlaubte Transparenzen, immer auf Textton, und **nie schwächer als hier**:
 
-### Typografie
+| Zweck | Wert | Variable |
+|---|---|---|
+| Zeilentrenner | `rgba(23,23,26,.2)` | `--linie-fein` |
+| sekundärer Fließtext | `.8` / `.78` | `--text-2` / `--text-3` |
+| Bildlegende, Platzhalter | `.7` | `--legende` |
+| Formular-Label | `.6` | `--label` |
 
-| Verwendung | Font | Größe | Gewicht |
+**`#4A5D3C` ist gestrichen.** Der Signalton ist mit den Abschnittsmarken
+entfallen und kommt im Projekt nicht mehr vor.
+
+`theme-color` ist `#F7F5F0`, nicht mehr Navy.
+
+---
+
+## Schrift
+
+Genau zwei Familien, beide selbst gehostet aus `/assets/fonts/`:
+
+- **Spectral** (Serif) trägt den Inhalt: Titel, Fließtext, Zitate. Schnitte 300, 400, 300 kursiv.
+- **Barlow** (Grotesk) trägt nur die Ordnung: Randziffern, Navigation, Wortmarke,
+  Legenden, Tabellen, Formulare. Schnitte 400, 500.
+
+```html
+<link rel="preload" href="/assets/fonts/spectral-300-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/barlow-500-latin.woff2" as="font" type="font/woff2" crossorigin>
+```
+
+**Kein Aufruf von Google Fonts oder einer anderen fremden Domain.**
+Nachladen der Dateien: `bash _design/tools/schriften_holen.sh`.
+
+| Rolle | Familie | Größe / Zeile | Klasse |
 |---|---|---|---|
-| Section-Überschriften (h2) | Libre Baskerville | clamp(26px, 3vw, 38px) | 400 |
-| Karten-Titel (h3/h4) | Libre Baskerville | 18px | 400 |
-| Body-Text | Inter | 14–15px | 300 |
-| Eyebrow-Labels | Inter | 11px | 500, uppercase, 0.18em spacing |
-| Nav-Links | Inter | 13px | 400 |
-| Zahlen / KPIs | Inter | 28px+ | 600 |
+| Seitentitel `h1` | Spectral 300 | 54 / 1.14 | — |
+| Seitentitel Über-Seite | Spectral 300 | 48 / 1.14 | `.t-h1-klein` |
+| Abschnittstitel `h2` | Spectral 400 | 30 / 1.2 | — |
+| Untertitel `h3` | Spectral 400 | 26 / 1.25 | — |
+| Listentitel | Spectral 300 | 22 / 1.35 | `.t-listentitel` |
+| Vorspann | Spectral 300 | 19 / 1.8 | `.vorspann` |
+| Fließtext Serif | Spectral 300 | 17–18 / 1.75–1.8 | `.fliess`, `.fliess-gross` |
+| Fließtext Grotesk | Barlow 400 | 15 / 1.75–1.85 | `.fliess-grotesk` |
+| Zitat | Spectral 300 kursiv | 32–34 / 1.4 | `.zitat` |
+| Randziffer | Barlow 400 | 13 / 1, `.16em` | `.ziffer` |
+| Navigation | Barlow 400 | 12 / 1, `.16em`, Versalien | `.nav` |
+| Wortmarke | Barlow 500 | 12 / 1, `.28em`, Versalien | `.wortmarke` |
+| Bildlegende | Barlow 400 | 12 / 1.5, `.1em`, Versalien | `.legende` |
 
-**Regel:** Serif (Libre Baskerville) für emotionale / vertrauensbildende Überschriften.
-Sans (Inter) für alles Funktionale (Nav, Labels, Body, Buttons).
-
-### Font-Einbindung (immer im `<head>`)
-
-```html
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-```
-
-### Abstände & Layout
-
-- Section-Padding: `padding: 88px 10vw`
-- Nav-Höhe: `64px` (fixed)
-- Body-Padding-Top immer `64px` (wegen fixed Nav)
-- Gap für Grids: `24px` (Karten), `64px` (große Layouts)
-- Border-Radius: Keiner — alle Ecken sind **sharp** (0px). Das ist Absicht.
-- Buttons: Keine Rundungen, keine Schatten — flat und direkt
-
-### Buttons
-
-```html
-<!-- Primär (Akzent) -->
-<a href="..." class="btn-primary">Jetzt anfragen</a>
-
-<!-- Sekundär (Ghost auf Navy) -->
-<a href="..." class="btn-ghost">Mehr erfahren</a>
-
-<!-- WhatsApp -->
-<a href="https://wa.me/491727410650" class="btn-whatsapp">...</a>
-```
-
-```css
-.btn-primary {
-  background: var(--accent); color: #fff;
-  padding: 14px 28px; font-size: 14px; font-weight: 500;
-  font-family: var(--sans); text-decoration: none;
-  transition: background 0.2s; display: inline-block;
-}
-.btn-primary:hover { background: var(--accent-h); }
-.btn-ghost {
-  border: 1px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.75);
-  padding: 13px 27px; font-size: 13px; font-weight: 400;
-  font-family: var(--sans); text-decoration: none;
-  transition: border-color 0.2s, color 0.2s; display: inline-block;
-}
-.btn-ghost:hover { border-color: rgba(255,255,255,0.7); color: #fff; }
-```
+Versalien nur bis 13 px. Keine Schriftgröße unter 11 px.
 
 ---
 
-## Navigation (identisch auf allen Seiten)
+## Das Motiv: Randziffern an einer Protokolllinie
 
-Die Nav ist **immer fixed, immer Navy, immer dieselbe Struktur**.
-Aktive Seite: `class="active"` am entsprechenden `<a>`-Tag → zeigt orangen Unterstrich.
+Jede Seite ist ein Protokoll. Jeder Abschnitt trägt links außen eine
+Ordnungsziffer in Barlow, klein und gesperrt, in Akzentfarbe. Abschnitte werden
+von Haarlinien eingefasst. **Ziffer und Linie sind die einzige Dekoration.**
 
 ```html
-<nav>
-  <div class="nav-logo">
-    <a href="/"><img src="/assets/logo-dark.png" alt="Gehrke Bauberatung" height="44"></a>
-  </div>
-  <ul class="nav-links">
-    <li><a href="/" [class="active"]>Start</a></li>
-    <li>
-      <a href="/baubetreuung/">Leistungen <span class="nav-chevron">▾</span></a>
-      <div class="nav-dropdown">
-        <a href="/baubetreuung/">Baubetreuung</a>
-        <a href="/bauberatung/">Bauberatung</a>
-        <a href="/bauprojektmanagement/">Bauprojektmanagement</a>
-        <a href="/denkmalsanierung/">Betreuung Denkmalsanierung</a>
-      </div>
-    </li>
-    <li><a href="/ueber-juergen/" [class="active"]>Über mich</a></li>
-    <li><a href="/referenzen/">Referenzen</a></li>
-    <li><a href="/kontakt/">Kontakt</a></li>
-  </ul>
-  <a href="/kontakt/" class="nav-cta">Kostenloses Erstgespräch</a>
-  <button class="nav-burger" onclick="toggleMobile()" aria-label="Menü öffnen">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-<div class="nav-mobile-menu" id="mobileMenu">
-  <a href="/">Start</a>
-  <a href="/baubetreuung/">Leistungen</a>
-  <a class="indent" href="/baubetreuung/">↳ Baubetreuung</a>
-  <a class="indent" href="/bauberatung/">↳ Bauberatung</a>
-  <a class="indent" href="/bauprojektmanagement/">↳ Bauprojektmanagement</a>
-  <a class="indent" href="/denkmalsanierung/">↳ Betreuung Denkmalsanierung</a>
-  <a href="/ueber-juergen/">Über mich</a>
-  <a href="/referenzen/">Referenzen</a>
-  <a href="/kontakt/">Kontakt →</a>
+<div class="gruppe">
+  <section class="abschnitt">
+    <span class="ziffer" aria-hidden="true">02.1</span>
+    <div class="inhalt">
+      <h2>Beratung vor dem Kauf</h2>
+      <p class="fliess">…</p>
+    </div>
+  </section>
 </div>
 ```
 
-Nav-JavaScript (identisch auf allen Seiten, ans Ende vor `</body>`):
-```html
-<script>
-function toggleMobile() {
-  document.getElementById('mobileMenu').classList.toggle('open');
-}
-document.addEventListener('click', function(e) {
-  const m = document.getElementById('mobileMenu');
-  if (m.classList.contains('open') && !m.contains(e.target) && !e.target.closest('.nav-burger')) {
-    m.classList.remove('open');
-  }
-});
-</script>
-```
+- Die Gruppe öffnet mit einer Linie voller Deckung, der letzte Abschnitt
+  schließt mit einer Linie voller Deckung. Dazwischen 20 % Deckung.
+- Die Randziffer sitzt auf der Grundlinie der ersten Inhaltszeile — das macht
+  `align-items:baseline` von selbst, es gibt nichts zu kalibrieren.
+- **Randziffern sind immer `aria-hidden="true"` und ersetzen nie eine Überschrift.**
 
 ---
 
-## Footer (identisch auf allen Seiten)
+## Raster
 
-```html
-<footer>
-  <div class="footer-grid">
-    <div class="footer-logo">
-      <img src="/assets/logo-dark.png" alt="Gehrke Bauberatung">
-      <p>Unabhängige Bauberatung &amp;<br>Baubetreuung in der Region<br>Schwäbisch Hall.</p>
-    </div>
-    <div class="footer-col">
-      <h5>Leistungen</h5>
-      <a href="/baubetreuung/">Baubetreuung</a>
-      <a href="/bauberatung/">Bauberatung</a>
-      <a href="/bauprojektmanagement/">Bauprojektmanagement</a>
-      <a href="/denkmalsanierung/">Betreuung Denkmalsanierung</a>
-    </div>
-    <div class="footer-col">
-      <h5>Unternehmen</h5>
-      <a href="/ueber-juergen/">Über mich</a>
-      <a href="/referenzen/">Referenzen</a>
-      <a href="/kontakt/">Kontakt</a>
-      <address>Stauferstraße 122<br>74523 Schwäbisch Hall</address>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2026 Gehrke Bauberatung und -betreuung UG</p>
-    <div class="footer-legal">
-      <a href="/impressum/">Impressum</a>
-      <a href="/datenschutz/">Datenschutz</a>
-    </div>
-  </div>
-</footer>
-```
+- Satzspiegel 1180 px, Außenrand 64 px, `column-gap: 56px`.
+- Abstand zwischen Abschnitten 96–104 px, innerhalb 26–34 px.
+- **Erlaubte Spaltenverhältnisse — und nur diese:**
+  `.v-7-5`, `.v-5-7`, `.v-9-3`, `.v-3-9`, `.v-4-8`, `.v-6-6`, `.v-auto-1`
+  (jeweils zusammen mit `.v`).
+- **Drei gleiche Spalten sind verboten.** Es gibt bewusst keine Klasse dafür.
+- **Asymmetrieregel:** auf jeder Seite tragen mindestens drei Abschnitte ein
+  anderes Verhältnis als die übrigen.
+- Bilder laufen randlos über die volle Breite (`.band`) oder exakt spaltenbreit.
+  `object-fit: cover`, feste Höhen, keine Rundung, keine Rahmen, kein Text im Foto.
 
 ---
 
-## SEO-Regeln (PFLICHT für jede Seite)
+## Bausteine
 
-### Meta-Tags Template
+| Zweck | Klasse |
+|---|---|
+| Kopf, Startseite | `.kopf` + `.wortmarke` + `.kopf-linie` + `.nav` |
+| Kopf, Unterseite | `.kopf.kopf--unterseite` + `.kopf-seitenname` (Seitenname in Akzent statt Navigation) |
+| Mobiles Menü | `.menue`, geöffnet über das Wort „Menü", geschlossen über das Wort „Zu" |
+| Primäre Handlungsaufforderung | `.cta` — Akzent, Unterlinie, `padding-bottom:7px` |
+| Textlink im Abschnitt | `.cta-text` |
+| Sekundäre Handlungsaufforderung | `.cta-2` — 1 px Rahmen, füllt sich beim Überfahren |
+| Formularfeld | `.feld` — nur `border-bottom`, Label darüber |
+| Fehler am Feld | `.feld[data-fehler]` + `.feld-fehler` |
+| Ablauf in Schritten | `.ablauf` |
+| Tabelle | `.tabelle`, Wert rechts in Akzent |
+| Aufklappbare Frage | `.faq` mit nativem `<details>` |
+| Zitat | `.zitat` + `.zitat-quelle` |
+| Randnotiz an senkrechter Linie | `.randnotiz` |
+| Rechtstext | `.rechtstext` |
+| Partnerlogos | `.partner` |
+| Senkrechter Rhythmus | `.stapel` |
 
-Jede Seite braucht **alle** dieser Tags, angepasst auf den Inhalt:
+Zustände und Übergänge:
 
-```html
-<title>[Seitenspezifisch] | Gehrke Bauberatung</title>
-<meta name="description" content="[150–160 Zeichen. Lokale Keywords + Mehrwert. Kein Keyword-Stuffing.]">
-<link rel="canonical" href="https://gehrkebauberatung.de/[pfad]/">
-<meta name="theme-color" content="#0d1c2a">
-<meta name="robots" content="index, follow, max-image-preview:large">
-<meta name="author" content="Jürgen Gehrke">
-<meta name="geo.region" content="DE-BW">
-<meta name="geo.placename" content="Schwäbisch Hall">
-
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:locale" content="de_DE">
-<meta property="og:site_name" content="Gehrke Bauberatung">
-<meta property="og:url" content="https://gehrkebauberatung.de/[pfad]/">
-<meta property="og:title" content="[Gleich wie <title>, ohne Suffix]">
-<meta property="og:description" content="[Gleich wie meta description]">
-<meta property="og:image" content="https://gehrkebauberatung.de/assets/juergen-gehrke.jpg">
-<meta property="og:image:alt" content="Jürgen Gehrke, Bauberater aus Schwäbisch Hall">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="[Gleich wie og:title]">
-<meta name="twitter:description" content="[Gleich wie og:description]">
-<meta name="twitter:image" content="https://gehrkebauberatung.de/assets/juergen-gehrke.jpg">
+```css
+transition: color 120ms linear, background-color 120ms linear, border-color 120ms linear;
 ```
 
-### Structured Data (JSON-LD)
+Mehr nicht. Keine Bewegung, keine Skalierung, keine Einblendungen beim Scrollen.
 
-**Jede Seite** braucht das `ProfessionalService`-Schema als Basis.
-**Leistungsseiten** bekommen zusätzlich `Service`-Schema.
-**FAQ-Abschnitte** bekommen `FAQPage`-Schema.
-**Über-Mich-Seite** bekommt `Person`-Schema.
+---
 
-Das vollständige `ProfessionalService`-Schema aus `index.html` / `ueber-juergen/index.html` als Vorlage verwenden.
+## Mobil (ab 900 px abwärts, Zielbreite 390 px)
 
-### Heading-Hierarchie
+- Einspaltig, Außenrand 20 px, `h1` 34 px.
+- **Die Randziffer steht in derselben Zeile vor dem Titel, niemals darüber.**
+  Das macht `.abschnitt{display:block}` plus `.ziffer{float:left}` — kein zweites Markup.
+- Kopf: Marke zweizeilig links, „Menü" in Akzent rechts. **Kein Hamburger-Symbol.**
+- Kein waagerechter Überlauf.
 
-```
-H1: Einmal pro Seite. Enthält Primär-Keyword + Ortsname wenn möglich.
-H2: Abschnittsüberschriften (section-headline Klasse).
-H3/H4: Karten, Unterpunkte, FAQ-Fragen.
-```
+---
 
-Beispiele für gute H1:
-- Startseite: "Unabhängige Bauberatung in Schwäbisch Hall"
-- Baubetreuung: "Baubetreuung in Schwäbisch Hall & Heilbronn"
-- Bauabnahme: "Professionelle Bauabnahme — Mängel erkennen, bevor Sie zahlen"
+## Verhalten
 
-### Lokale Keywords (immer einbauen wo relevant)
+Die Seite ist ein Dokument, keine Anwendung.
 
-Primär: Schwäbisch Hall, Heilbronn, Hohenlohe, Crailsheim
-Sekundär: Landkreis Schwäbisch Hall, Baden-Württemberg, Franken
-Services: Baubetreuung, Bauberatung, Bauabnahme, Baugutachter, Baubetreuer
+- Client-Zustand nur: mobiles Menü offen/zu, Formularwerte, Formularstatus.
+- Kein Store, kein Client-Routing, harte Seitenwechsel.
+- `cookie-consent.js` bleibt unverändert eingebunden (`defer`), lädt GA4 erst
+  nach Einwilligung.
+- Formular: `POST https://api.web3forms.com/submit`, Honigtopf statt Captcha,
+  Prüfung erst beim Absenden, DSGVO-Zeile mit Kontrollkästchen über dem Knopf.
 
-### Bilder (SEO)
+---
+
+## SEO (Pflicht für jede Seite)
+
+- Titel und Meta-Description **aus dem Bestand übernehmen**, nicht neu erfinden.
+  Sie stehen in `_design/inventar/<seite>.md`.
+- `lang="de"`, `canonical`, vollständige Open-Graph- und Twitter-Angaben.
+- **Ein `h1` pro Seite. Überschriftenebenen lückenlos** — kein Sprung h2 → h4.
+- JSON-LD: `LocalBusiness`/`ProfessionalService` auf jeder Seite,
+  `BreadcrumbList` auf Unterseiten, `Service` je Leistungsseite,
+  `FAQPage` bei Frageabschnitten, `Person` auf der Über-Seite.
+- Ortsbezug im Text halten: Schwäbisch Hall, Heilbronn, Hohenlohe, Crailsheim,
+  Landkreis Schwäbisch Hall, Öhringen, Künzelsau, Waldenburg, Bretzfeld,
+  Ilshofen, Langenburg, Neuenstein. Träger ist die Ortsliste auf der Kontaktseite.
+- Leistungsbegriffe wörtlich: Bauberatung, Baubetreuung, Baubegleitung,
+  Fachwerksanierung, Sanierungsberatung, Kaufberatung Immobilie, Bauherrenberatung,
+  Bauprojektmanagement, Denkmalsanierung.
+- Zielwert: Largest Contentful Paint unter 2,0 s auf dem Mobilgerät.
+
+### Bilder
 
 Jedes `<img>` braucht:
-- `alt`-Attribut mit beschreibendem Text (keine Dateinamen!)
-- `loading="lazy"` außer Hero-Bilder (diese: `loading="eager"`)
-- `width` und `height` Attribute (Core Web Vitals)
 
-Beispiel:
-```html
-<img src="/assets/juergen-gehrke-beratung.jpg"
-     alt="Jürgen Gehrke erklärt einem Bauherrn Details beim Fachwerkhaus-Fenster"
-     loading="lazy" width="800" height="1067">
-```
+- `alt` mit beschreibendem Text — **wörtlich aus dem Bestand**, die alt-Texte
+  tragen Suchbegriffe
+- `width` und `height` (echte Pixelmaße: `python3 _design/tools/bildmasse.py`)
+- `loading="lazy"`, außer beim Hero-Bild der Seite:
+  `loading="eager" fetchpriority="high"`
+
+**Nie als `data:`-URI einbetten.** Alle Bilder liegen als Datei in `/assets/`,
+flach, Dateiname klein und mit Bindestrichen.
 
 ---
 
-## Kontaktdaten (immer diese verwenden)
+## Barrierefreiheit
+
+- Fokus immer sichtbar: 2 px Akzent-Umriss, 2 px Abstand. **Nie `outline:none`.**
+- Formularlabels als echte `<label for>`.
+- Randziffern dekorativ und `aria-hidden="true"`.
+- Platzhalter nie unter 70 %, Labels nie unter 60 % Textton.
+- Links im Fließtext sind unterstrichen — Farbe allein reicht nicht.
+- Tastaturbedienung vollständig, mobiles Menü mit Escape schließbar.
+
+---
+
+## Kontaktdaten (immer diese)
 
 ```
 Name:     Jürgen Gehrke
@@ -341,68 +299,55 @@ E-Mail:   info@gehrkebauberatung.de
 WhatsApp: https://wa.me/491727410650
 ```
 
-**WhatsApp-Button** auf jeder Seite einbauen — das ist der wichtigste Conversion-Kanal.
+Die Wortmarke im Kopf lautet **„Gehrke Bauberatung"** (Platzgründe, siehe
+`_design/UMBAU.md` D-1). Die vollständige Firmierung steht im Fuß, im Impressum
+und in den strukturierten Daten.
+
+Der WhatsApp-Link gehört auf jede Seite — er ist der wichtigste
+Conversion-Kanal. Er ist ein normaler Link, **kein grüner Knopf**.
 
 ---
 
-## Wiederkehrende UI-Muster
+## Was nicht gemacht werden darf
 
-### Section Eyebrow + Headline
+- ❌ Eine fünfte Farbe, eine Zwischenstufe oder `#4A5D3C` verwenden
+- ❌ Eine andere Schrift als Spectral und Barlow (nie Inter, Geist, Roboto,
+  Open Sans, `system-ui`, Libre Baskerville)
+- ❌ Schriften von einer fremden Domain laden
+- ❌ `border-radius`, `box-shadow`, `backdrop-filter`, Farbverlauf, Textschatten
+- ❌ Eine kleine Versalzeile über einer Überschrift
+- ❌ Zentrierter Hero, Auszeichnungsmarke über der Überschrift
+- ❌ Symbole in runden Kacheln, Symbolsätze, Karten, Schmuckelemente
+- ❌ Ein symmetrisches Merkmalsraster aus drei gleichen Spalten
+- ❌ Ein dunkler Handlungsaufforderungs-Block als vorletzter Abschnitt
+- ❌ Emojis, Stockfotografie
+- ❌ Bewegung, Skalierung, Einblendungen beim Scrollen
+- ❌ Inline-Styles oder `<style>`-Blöcke statt `site.css`
+- ❌ Bilder als base64 einbetten
+- ❌ Bilder ohne `alt`, `width`, `height`
+- ❌ CSS- oder JS-Frameworks, externe CDN-Abhängigkeiten
+- ❌ Adressen ändern, Titel oder Meta-Descriptions neu erfinden
+- ❌ Neue Seiten ohne abschließenden Schrägstrich
 
-```html
-<p class="section-eyebrow">Kurzes Label</p>
-<h2 class="section-headline">Die eigentliche Überschrift</h2>
+---
+
+## Vor jedem Commit
+
+```bash
+python3 _design/tools/pruefung.py
 ```
 
-Eyebrow: uppercase, klein, Bronze, mit Strich davor (via CSS ::before).
+muss **0 Fehler** melden. Dazu von Hand:
 
-### Karten (cream-farbig, scharf)
+- [ ] Mobil bei 390 px angesehen, kein waagerechter Überlauf
+- [ ] Randziffer steht mobil vor, nie über dem Titel
+- [ ] Tastaturbedienung vollständig, Fokus überall sichtbar
+- [ ] Mindestens drei verschiedene Spaltenverhältnisse auf der Seite
+- [ ] Fuß und Kopf identisch zu den anderen Seiten
+- [ ] Text unverändert gegenüber `_design/inventar/`
 
-```html
-<div class="wert-card">
-  <div class="wert-num">01</div>
-  <h3 class="wert-title">Titel</h3>
-  <p class="wert-text">Beschreibung</p>
-</div>
+Vorschau:
+
+```bash
+python3 -m http.server 8787
 ```
-
-Karten haben oben links eine 3px Bronze-Linie (via CSS ::before). Keine Rundungen.
-
-### Testimonials / Zitate
-
-Zitate immer in Libre Baskerville, kursiv, auf Navy-Hintergrund oder in `.story-quote`.
-Autor immer mit Name + Ort/Kontext.
-
-### FAQ
-
-Nutzt natives `<details>` + `<summary>` HTML — kein JavaScript nötig.
-Jede FAQ-Seite braucht `FAQPage` JSON-LD.
-
----
-
-## Was NICHT gemacht werden darf
-
-- ❌ Farben aus dem Design-System ändern oder neue hinzufügen
-- ❌ Andere Fonts einbinden (kein Roboto, kein Montserrat etc.)
-- ❌ Border-Radius hinzufügen (alles bleibt sharp)
-- ❌ Bootstrap, Tailwind oder andere CSS-Frameworks einbinden
-- ❌ Bilder ohne `alt`-Attribut
-- ❌ Seiten ohne vollständige Meta-Tags und Structured Data deployen
-- ❌ JavaScript-Frameworks (React, Vue etc.) — reines Vanilla JS
-- ❌ Externe CDN-Abhängigkeiten außer Google Fonts
-- ❌ Neue Seiten ohne trailing slash in der URL
-- ❌ Inline-Styles statt CSS-Klassen (außer für dynamische Werte)
-
----
-
-## Checkliste vor jedem Commit
-
-- [ ] Alle Meta-Tags vollständig und seitenspezifisch?
-- [ ] Canonical URL korrekt?
-- [ ] JSON-LD vorhanden und valide?
-- [ ] Alle Bilder haben `alt`, `loading`, `width`, `height`?
-- [ ] Nav zeigt die richtige Seite als `active`?
-- [ ] Footer identisch mit anderen Seiten?
-- [ ] Mobile-View getestet (max-width: 768px)?
-- [ ] Keine hardcodierten Farben (alles via CSS-Variablen)?
-- [ ] WhatsApp-Link vorhanden?

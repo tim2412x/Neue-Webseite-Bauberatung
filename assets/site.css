@@ -1,0 +1,607 @@
+/* ==========================================================================
+   Gehrke Bauberatung — Stylesheet "Aufnahme"
+   Umsetzung von REDESIGN.md. Einziges Stylesheet der Seite.
+   Einbindung je Seite:  <link rel="stylesheet" href="/assets/site.css">
+   Keine Inline-Styles im Markup (REDESIGN §2). Keine externen Domains (§13).
+   ========================================================================== */
+
+/* --- 1. Schriften, selbst gehostet -------------------------------------- */
+/* Nachladen mit:  bash _design/tools/schriften_holen.sh                     */
+
+@font-face{font-family:Spectral;font-style:normal;font-weight:300;font-display:swap;
+  src:url(/assets/fonts/spectral-300-latin.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Spectral;font-style:normal;font-weight:300;font-display:swap;
+  src:url(/assets/fonts/spectral-300-latin-ext.woff2) format("woff2");
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Spectral;font-style:normal;font-weight:400;font-display:swap;
+  src:url(/assets/fonts/spectral-400-latin.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Spectral;font-style:normal;font-weight:400;font-display:swap;
+  src:url(/assets/fonts/spectral-400-latin-ext.woff2) format("woff2");
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Spectral;font-style:italic;font-weight:300;font-display:swap;
+  src:url(/assets/fonts/spectral-300-italic-latin.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Spectral;font-style:italic;font-weight:300;font-display:swap;
+  src:url(/assets/fonts/spectral-300-italic-latin-ext.woff2) format("woff2");
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Barlow;font-style:normal;font-weight:400;font-display:swap;
+  src:url(/assets/fonts/barlow-400-latin.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Barlow;font-style:normal;font-weight:400;font-display:swap;
+  src:url(/assets/fonts/barlow-400-latin-ext.woff2) format("woff2");
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:Barlow;font-style:normal;font-weight:500;font-display:swap;
+  src:url(/assets/fonts/barlow-500-latin.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Barlow;font-style:normal;font-weight:500;font-display:swap;
+  src:url(/assets/fonts/barlow-500-latin-ext.woff2) format("woff2");
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+/* --- 2. Merkmale (REDESIGN §6) ------------------------------------------ */
+/* Genau vier Farbwerte. Keine Zwischenstufen erfinden.
+   #4A5D3C (Signalton) ist ersatzlos gestrichen und darf hier nicht auftauchen. */
+
+:root{
+  --grund:#F7F5F0;          /* Seitenhintergrund */
+  --flaeche:#E8E2D6;        /* abgesetzte Abschnitte, Fussband */
+  --text:#17171A;           /* Text, Linien, Rahmen */
+  --akzent:#8A3B12;         /* Randziffern, Links, primaere Handlungsaufforderung */
+
+  --linie:var(--text);
+  --linie-fein:rgba(23,23,26,.2);   /* Zeilentrenner */
+  --text-2:rgba(23,23,26,.8);       /* sekundaerer Fliesstext */
+  --text-3:rgba(23,23,26,.78);      /* sekundaerer Fliesstext, Variante */
+  --legende:rgba(23,23,26,.7);      /* Bildlegende, Platzhalter — Untergrenze */
+  --label:rgba(23,23,26,.6);        /* Formular-Label — Untergrenze */
+
+  --serif:Spectral,Georgia,"Times New Roman",serif;
+  --grotesk:Barlow,"Helvetica Neue",Arial,sans-serif;
+
+  --satz:1180px;            /* Satzspiegel */
+  --rand:64px;              /* Aussenrand */
+  --spalte-gap:56px;
+  --radius:0;
+
+  /* Kalibrierknopf, nur mobil: dort haengt die Ziffer als Float und kann
+     nicht per align-items ausgerichtet werden (siehe Abschnitt 19).
+     Gemessen bei h2 26px/1.2 bzw. h3 22px/1.35. Aendert sich die mobile
+     Titelgroesse, hier nachziehen. */
+  --ziffer-versatz-mobil:12px;
+  --ziffer-versatz-mobil-eng:10px;
+}
+
+/* --- 3. Grundlagen ------------------------------------------------------ */
+
+*,*::before,*::after{box-sizing:border-box}
+
+html{-webkit-text-size-adjust:100%}
+
+body{
+  margin:0;
+  background:var(--grund);
+  color:var(--text);
+  font:300 17px/1.75 var(--serif);
+  text-rendering:optimizeLegibility;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Erlaubte Uebergaenge — sonst keine (REDESIGN §9). */
+a,button,input,select,textarea,.cta-2{
+  transition:color 120ms linear,background-color 120ms linear,border-color 120ms linear;
+}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+img{display:block;max-width:100%;border-radius:var(--radius)}
+
+h1,h2,h3,h4,h5,h6,p,figure,blockquote,dl,dd{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+
+/* Fokus immer sichtbar (REDESIGN §14). Nie outline:none. */
+a:focus-visible,button:focus-visible,input:focus-visible,
+select:focus-visible,textarea:focus-visible,summary:focus-visible{
+  outline:2px solid var(--akzent);
+  outline-offset:2px;
+}
+
+.nur-fuer-screenreader{
+  position:absolute;width:1px;height:1px;overflow:hidden;
+  clip-path:inset(50%);white-space:nowrap;
+}
+
+/* Sprungmarke zum Inhalt */
+.zum-inhalt{
+  position:absolute;left:-9999px;top:0;z-index:10;
+  padding:12px 20px;background:var(--text);color:var(--grund);
+  font:500 12px/1 var(--grotesk);letter-spacing:.18em;text-transform:uppercase;
+}
+.zum-inhalt:focus{left:0}
+
+/* --- 4. Satzspiegel und Abschnittsrhythmus (REDESIGN §8) ---------------- */
+
+.seite{max-width:var(--satz);margin:0 auto}
+
+/* Innenbereich mit Aussenrand. Fuer randlose Baender NICHT verwenden. */
+.bahn{padding-left:var(--rand);padding-right:var(--rand)}
+
+/* Abstand zwischen Abschnitten: 96–104px */
+.abstand-96{margin-top:96px}
+.abstand-104{margin-top:104px}
+.abstand-80{margin-top:80px}
+.abstand-64{margin-top:64px}
+
+/* Senkrechter Rhythmus innerhalb einer Spalte (REDESIGN §8: 26–34px).
+   .stapel setzen, statt Abstaende einzeln zu vergeben. */
+.stapel>*+*{margin-top:22px}
+.stapel>h1+*,.stapel>h2+*,.stapel>h3+*{margin-top:26px}
+.stapel>.vorspann+*{margin-top:22px}
+.stapel>.cta-zeile{margin-top:38px}
+.stapel>.gruppe,.stapel>.ablauf{margin-top:34px}
+
+/* Hero der Startseite: erster Abschnitt unter der Kopf-Haarlinie.
+   64px, wenn keine Marke mehr darueber steht (REDESIGN §3, Regel 3). */
+.hero{padding-top:64px}
+
+/* Flaechenton-Block. Laeuft ueber die volle Satzbreite, Innenabstand eigen. */
+.flaeche{
+  background:var(--flaeche);
+  padding:72px var(--rand);
+  /* Auf dem Flaechenton faellt ein Label mit 60% Deckung auf 4,29:1 und damit
+     unter die Grenze von 4,5:1 (REDESIGN §14 misst nur gegen den Grundton).
+     Auf dieser Flaeche deshalb 66% — staerker, nie schwaecher: 5,16:1. */
+  --label:rgba(23,23,26,.66);
+}
+
+/* --- 5. Spaltenverhaeltnisse (REDESIGN §8) ------------------------------ */
+/* Erlaubt sind ausschliesslich diese sieben. Drei gleiche Spalten sind
+   verboten — es gibt bewusst keine Klasse dafuer.
+   Asymmetrieregel: je Seite tragen mindestens drei Abschnitte ein anderes
+   Verhaeltnis als die uebrigen. Pruefung: _design/tools/pruefung.py         */
+
+.v{display:grid;column-gap:var(--spalte-gap);row-gap:var(--spalte-gap)}
+.v-7-5{grid-template-columns:7fr 5fr}
+.v-5-7{grid-template-columns:5fr 7fr}
+.v-9-3{grid-template-columns:9fr 3fr}
+.v-3-9{grid-template-columns:3fr 9fr}
+.v-4-8{grid-template-columns:4fr 8fr}
+.v-6-6{grid-template-columns:6fr 6fr}
+.v-auto-1{grid-template-columns:auto 1fr;row-gap:0}
+
+.oben{align-items:start}
+.grundlinie{align-items:baseline}
+.unten{align-items:end}
+
+/* --- 6. Typografie (REDESIGN §7) ---------------------------------------- */
+
+h1,.t-h1{
+  font:300 54px/1.14 var(--serif);
+  letter-spacing:-.01em;max-width:26ch;text-wrap:pretty;
+}
+.t-h1-klein{font-size:48px}          /* Ueber-Seite */
+
+h2,.t-h2{font:400 30px/1.2 var(--serif);text-wrap:pretty}
+h3,.t-h3{font:400 26px/1.25 var(--serif);text-wrap:pretty}
+h4,h5,h6,.t-listentitel{font:300 22px/1.35 var(--serif)}
+
+/* Vorspann — der erste Absatz unter der Ueberschrift. */
+.vorspann{font:300 19px/1.8 var(--serif);max-width:56ch}
+
+/* Fliesstext */
+p{max-width:70ch}
+.fliess{font:300 17px/1.75 var(--serif);max-width:70ch}
+.fliess-gross{font:300 18px/1.8 var(--serif);max-width:70ch}
+.fliess-grotesk{font:400 15px/1.8 var(--grotesk);color:var(--text-2);max-width:64ch}
+.fliess-grotesk-eng{font:400 15px/1.75 var(--grotesk);max-width:64ch}
+
+/* Zitat */
+.zitat{font:300 italic 34px/1.4 var(--serif);max-width:34ch}
+.zitat-klein{font-size:32px;max-width:36ch}
+.zitat-quelle{
+  margin-top:28px;font:500 12px/1 var(--grotesk);
+  letter-spacing:.24em;text-transform:uppercase;
+}
+
+/* Randziffer — dekorativ. Im Markup immer <span class="ziffer" aria-hidden="true">. */
+.ziffer{
+  font:400 13px/1 var(--grotesk);
+  letter-spacing:.16em;color:var(--akzent);
+  white-space:nowrap;
+}
+
+/* Bildlegende */
+.legende{
+  margin-top:14px;font:400 12px/1.5 var(--grotesk);
+  letter-spacing:.1em;text-transform:uppercase;color:var(--legende);
+}
+
+/* Brotkrume — Barlow, gesperrt, gedaempft. Keine Ueberschrift. */
+.brotkrume{
+  font:400 13px/1 var(--grotesk);
+  letter-spacing:.2em;text-transform:uppercase;color:var(--label);
+}
+.brotkrume a{color:inherit}
+.brotkrume a:hover{color:var(--akzent)}
+
+/* Randnotiz an senkrechter Linie (9/3 und 3/9). */
+.randnotiz{
+  font:400 14px/1.8 var(--grotesk);
+  border-left:1px solid var(--linie);padding-left:20px;
+}
+
+/* --- 7. Abschnitt: Randziffer an der Protokolllinie (REDESIGN §4) -------- */
+/*
+   <div class="gruppe">
+     <section class="abschnitt">
+       <span class="ziffer" aria-hidden="true">02.1</span>
+       <div class="inhalt"><h2>…</h2><p>…</p></div>
+     </section>
+     … weitere Abschnitte …
+   </div>
+   Die Gruppe oeffnet mit einer Linie voller Deckung, der letzte Abschnitt
+   schliesst mit einer Linie voller Deckung.
+*/
+
+.gruppe{border-top:1px solid var(--linie)}
+
+.abschnitt{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  column-gap:var(--spalte-gap);
+  /* Grundlinienausrichtung: die Randziffer sitzt auf der Grundlinie der
+     ersten Inhaltszeile, ohne Handkalibrierung — auch wenn sich die
+     Titelgroesse aendert (REDESIGN §3, Regel 1). */
+  align-items:baseline;
+}
+.abschnitt>.inhalt{
+  padding:32px 0 30px;
+  border-bottom:1px solid var(--linie-fein);
+}
+/* Letzter Abschnitt der Gruppe schliesst mit voller Deckung. */
+.gruppe>.abschnitt:last-child>.inhalt{border-bottom-color:var(--linie)}
+
+/* Engere Variante fuer Listenzeilen (Leistungsumfang, Faktenliste). */
+.abschnitt-eng>.inhalt{padding:24px 0}
+
+.inhalt>*+*{margin-top:12px}
+.inhalt>h2+p,.inhalt>h3+p{margin-top:12px}
+
+/* Zeile innerhalb eines Abschnitts: Begriff | Erlaeuterung (5/7). */
+.zeile-5-7{
+  display:grid;grid-template-columns:5fr 7fr;gap:40px;align-items:baseline;
+}
+.zeile-5-7>*{margin-top:0}
+
+/* --- 8. Kopf und Navigation (REDESIGN §10) ------------------------------ */
+
+.kopf{
+  display:flex;align-items:baseline;gap:36px;
+  padding:30px var(--rand) 22px;
+  max-width:var(--satz);margin:0 auto;
+}
+.wortmarke{
+  font:500 12px/1 var(--grotesk);
+  letter-spacing:.28em;text-transform:uppercase;color:var(--text);
+  text-decoration:none;
+}
+.wortmarke:hover{color:var(--akzent)}
+.kopf-linie{flex:1 1 0;min-width:48px;height:1px;background:var(--linie)}
+/* Die Kopfzeile ist eng: Wortmarke 188px + Navigation 644px + Abstaende passen
+   bei 1180px Satzspiegel mit ~128px Haarlinie. min-width haelt die Linie
+   sichtbar, falls ein Navigationspunkt dazukommt — dann Nav kuerzen, nicht
+   die Sperrung reduzieren. */
+
+.nav{
+  display:flex;gap:26px;
+  font:400 12px/1 var(--grotesk);
+  letter-spacing:.16em;text-transform:uppercase;
+}
+.nav a{color:var(--text);text-decoration:none}
+.nav a:hover{color:var(--akzent)}
+.nav a[aria-current="page"],.nav .aktiv{color:var(--akzent)}
+
+/* Unterseiten: Seitenname in Akzent statt Navigation (REDESIGN §10). */
+.kopf-seitenname{
+  font:400 12px/1 var(--grotesk);
+  letter-spacing:.16em;text-transform:uppercase;color:var(--akzent);
+}
+/* Steht im Kopf keine Navigation, muss das Menue auf jeder Breite erreichbar
+   sein — sonst fuehrt von der Unterseite kein Weg weiter (§14 Tastatur). */
+.kopf--unterseite .menue-knopf{display:block}
+
+/* Mobiles Menue — das Wort "Menü", kein Hamburger-Symbol. */
+.menue-knopf{
+  display:none;background:none;border:0;padding:0;cursor:pointer;
+  font:500 11px/1 var(--grotesk);
+  letter-spacing:.16em;text-transform:uppercase;color:var(--akzent);
+}
+.menue{
+  display:none;position:fixed;inset:0;z-index:20;
+  background:var(--grund);padding:18px 20px 40px;overflow-y:auto;
+}
+.menue[data-offen]{display:block}
+.menue-kopf{
+  display:flex;align-items:baseline;justify-content:space-between;
+  padding-bottom:14px;border-bottom:1px solid var(--linie);
+}
+.menue-zu{
+  background:none;border:0;padding:0;cursor:pointer;
+  font:500 11px/1 var(--grotesk);
+  letter-spacing:.16em;text-transform:uppercase;color:var(--akzent);
+}
+.menue-liste a{
+  display:flex;align-items:baseline;gap:12px;
+  padding:18px 0;border-bottom:1px solid var(--linie-fein);
+  font:400 26px/1.25 var(--serif);color:var(--text);text-decoration:none;
+}
+.menue-liste a:last-child{border-bottom-color:var(--linie)}
+.menue-liste .ziffer{flex:none}
+
+/* --- 9. Bausteine und Zustaende (REDESIGN §9) --------------------------- */
+
+/* Textlink im Fliesstext: Akzent und unterstrichen. Farbe allein reicht als
+   Unterscheidungsmerkmal nicht (WCAG 1.4.1). Strukturlinks (Kopf, Fuss,
+   Navigation, Brotkrume, CTA) tragen ihre eigene Auszeichnung. */
+a{color:var(--akzent);text-underline-offset:3px;text-decoration-thickness:1px}
+a:hover{color:var(--text)}
+
+.cta{
+  display:inline-block;
+  padding-bottom:7px;border-bottom:1px solid var(--akzent);
+  font:500 13px/1 var(--grotesk);
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--akzent);text-decoration:none;
+}
+.cta:hover{color:var(--text);border-bottom-color:var(--text)}
+
+/* Textlink im Fliesstext eines Abschnitts, etwas kleiner. */
+.cta-text{
+  display:inline-block;
+  font:500 12px/1 var(--grotesk);
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--akzent);text-decoration:none;
+}
+.cta-text:hover{color:var(--text)}
+
+/* Sekundaere Handlungsaufforderung */
+.cta-2{
+  display:inline-block;
+  padding:14px 24px;border:1px solid var(--text);border-radius:var(--radius);
+  font:500 12px/1 var(--grotesk);
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--text);text-decoration:none;background:none;cursor:pointer;
+}
+.cta-2:hover{background:var(--text);color:var(--grund)}
+
+/* Zeile aus Handlungsaufforderung + Zusatz ("Rueckruf am selben Tag") */
+.cta-zeile{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.cta-zusatz{font:400 14px/1.6 var(--grotesk);max-width:34ch}
+
+/* --- 10. Bilder --------------------------------------------------------- */
+
+.bild{width:100%;object-fit:cover}
+.bild-430{height:430px}     /* Hero Startseite */
+.bild-400{height:400px}     /* randloses Band */
+.bild-360{height:360px}     /* Leistungsseite Einleitung */
+.bild-520{height:520px}     /* Portraet Ueber-Seite */
+.bild-260{height:260px}     /* Kontaktseite */
+.bild-oben{object-position:center 18%}
+.bild-mitte{object-position:center 45%}
+
+/* Randloses Band: bricht bewusst aus dem Aussenrand aus. */
+.band{margin-left:0;margin-right:0}
+
+/* --- 11. Ablaufband: vier Schritte in einer Zeile ----------------------- */
+/* Kein Kartenraster — nur Haarlinien. Vier Spalten sind erlaubt, weil es
+   eine Zeitachse ist, kein Merkmalsraster (REDESIGN §5.8 meint drei gleiche
+   Merkmalsspalten). */
+
+.ablauf{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  margin-top:34px;border-top:1px solid var(--linie);
+}
+.ablauf>*{padding:24px;border-right:1px solid var(--linie-fein)}
+.ablauf>*:first-child{padding-left:0}
+.ablauf>*:last-child{padding-right:0;border-right:0}
+.ablauf-titel{margin-top:12px;font:300 20px/1.35 var(--serif)}
+
+/* --- 12. Tabelle (Verwaltungen, Honorar) -------------------------------- */
+
+.tabelle{width:100%;border-collapse:collapse;font:400 15px/1.75 var(--grotesk)}
+.tabelle th,.tabelle td{
+  padding:14px 0;text-align:left;
+  border-bottom:1px solid var(--linie-fein);
+}
+.tabelle thead th{
+  font:500 11px/1 var(--grotesk);
+  letter-spacing:.18em;text-transform:uppercase;color:var(--label);
+}
+.tabelle tbody tr:last-child td{border-bottom-color:var(--linie)}
+.tabelle .wert{text-align:right;color:var(--akzent);white-space:nowrap}
+
+/* --- 13. Formular (REDESIGN §9, §12) ------------------------------------ */
+
+.formular{margin-top:44px}
+.feldpaar{display:grid;grid-template-columns:1fr 1fr;gap:34px 40px}
+.feld{margin-top:34px}
+.feldpaar .feld{margin-top:0}
+
+.feld label,.feld-label{
+  display:block;
+  font:500 11px/1 var(--grotesk);
+  letter-spacing:.18em;text-transform:uppercase;color:var(--label);
+}
+.feld input,.feld select,.feld textarea{
+  display:block;width:100%;margin-top:10px;padding:0 0 8px;
+  background:none;border:0;border-bottom:1px solid var(--text);
+  border-radius:var(--radius);
+  font:400 16px/1.6 var(--grotesk);color:var(--text);
+  appearance:none;
+}
+.feld textarea{min-height:96px;resize:vertical}
+.feld ::placeholder{color:var(--legende);opacity:1}   /* Kontrastuntergrenze */
+.feld input:focus,.feld select:focus,.feld textarea:focus{
+  border-bottom:2px solid var(--akzent);
+  padding-bottom:7px;                                  /* haelt die Hoehe */
+  outline:none;                                        /* ersetzt durch die Linie */
+}
+.feld input:focus-visible,.feld select:focus-visible,.feld textarea:focus-visible{
+  outline:2px solid var(--akzent);outline-offset:2px;
+}
+
+/* Fehler: Textzeile unter dem Feld, Feldlinie 2px Akzent. Keine Flaeche. */
+.feld[data-fehler] input,.feld[data-fehler] select,.feld[data-fehler] textarea{
+  border-bottom:2px solid var(--akzent);padding-bottom:7px;
+}
+.feld-fehler{
+  margin-top:8px;font:400 13px/1.5 var(--grotesk);color:var(--akzent);
+}
+
+/* Honigtopf — fuer Menschen unsichtbar, kein display:none (Bots lesen das). */
+.honigtopf{
+  position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;
+}
+
+/* DSGVO-Zeile ueber dem Absenden-Knopf */
+.zustimmung{
+  display:flex;align-items:flex-start;gap:12px;margin-top:30px;
+  font:400 13px/1.6 var(--grotesk);max-width:70ch;
+}
+.zustimmung input{margin-top:3px;accent-color:var(--akzent)}
+
+.formular-hinweis{margin-top:24px;font:400 15px/1.8 var(--grotesk)}
+
+/* --- 14. Fuss ----------------------------------------------------------- */
+
+.fuss{
+  display:flex;align-items:baseline;justify-content:space-between;gap:40px;
+  flex-wrap:wrap;
+  max-width:var(--satz);margin:88px auto 0;
+  padding:26px var(--rand);
+  border-top:1px solid var(--linie);
+}
+.fuss-marke{
+  font:500 12px/1 var(--grotesk);
+  letter-spacing:.24em;text-transform:uppercase;
+}
+.fuss-links{
+  display:flex;gap:24px;flex-wrap:wrap;
+  font:400 12px/1 var(--grotesk);
+  letter-spacing:.14em;text-transform:uppercase;
+}
+.fuss-links a{color:var(--text);text-decoration:none}
+.fuss-links a:hover{color:var(--akzent)}
+.fuss-flaeche{background:var(--flaeche);margin-top:0;border-top:0}
+
+/* --- 15. Rechtstexte (Impressum, Datenschutz, AGB) ---------------------- */
+/* Einspaltig 9/3, Fliesstext Barlow 15/1.85, Randziffern als Paragraphennummern. */
+
+.rechtstext{font:400 15px/1.85 var(--grotesk)}
+.rechtstext h2{font:400 26px/1.25 var(--serif)}
+.rechtstext h3{font:300 22px/1.35 var(--serif)}
+.rechtstext p,.rechtstext li{max-width:80ch}
+.rechtstext ul{margin-top:12px}
+.rechtstext li{padding-left:20px;position:relative}
+.rechtstext li::before{content:"—";position:absolute;left:0;color:var(--akzent)}
+
+/* --- 16. Aufklappbare Frage (FAQ) --------------------------------------- */
+/* Natives <details>/<summary>, kein JavaScript. Kein Symbol, kein Pfeil —
+   die Frage steht in Spectral, der Zustand zeigt sich am Text darunter. */
+
+.faq{border-top:1px solid var(--linie)}
+.faq details{border-bottom:1px solid var(--linie-fein)}
+.faq details:last-child{border-bottom-color:var(--linie)}
+.faq summary{
+  display:block;padding:24px 0;cursor:pointer;
+  font:400 22px/1.35 var(--serif);
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::marker{content:""}
+.faq summary:hover{color:var(--akzent)}
+.faq details[open] summary{color:var(--akzent)}
+.faq-antwort{padding:0 0 28px;font:400 15px/1.8 var(--grotesk);max-width:76ch}
+
+/* --- 17. Sterne einer Kundenstimme -------------------------------------- */
+/* Inhalt, keine Dekoration: die Bewertung gehoert zum Zitat. */
+
+.sterne{
+  font:400 13px/1 var(--grotesk);letter-spacing:.16em;color:var(--akzent);
+}
+
+/* --- 18. Partnerlogos --------------------------------------------------- */
+/* Graustufig und gedaempft, damit die Fremdfarben das Motiv nicht brechen. */
+
+.partner{
+  display:flex;flex-wrap:wrap;align-items:center;gap:48px;
+  padding-top:28px;border-top:1px solid var(--linie-fein);
+}
+.partner img{height:44px;width:auto;filter:grayscale(1);opacity:.75}
+
+/* --- 19. Mobil, 390px (REDESIGN §11) ------------------------------------ */
+
+@media (max-width:900px){
+  :root{--rand:20px;--spalte-gap:32px}
+
+  body{font-size:16px}
+
+  h1,.t-h1,.t-h1-klein{font-size:34px;line-height:1.16;max-width:none}
+  h2,.t-h2{font-size:26px}
+  h3,.t-h3{font-size:22px}
+  .vorspann{font-size:17px;line-height:1.75;max-width:none}
+  .zitat,.zitat-klein{font-size:24px;max-width:none}
+
+  /* Alle Spaltenverhaeltnisse fallen auf eine Spalte. */
+  .v,.v-7-5,.v-5-7,.v-9-3,.v-3-9,.v-4-8,.v-6-6,.v-auto-1{
+    grid-template-columns:1fr;
+  }
+
+  /* Randziffer steht VOR dem Titel in derselben Zeile, niemals darueber. */
+  .abschnitt{display:block}
+  .abschnitt>.ziffer{
+    float:left;margin-right:12px;
+    padding-top:calc(18px + var(--ziffer-versatz-mobil));
+  }
+  .abschnitt-eng>.ziffer{padding-top:calc(18px + var(--ziffer-versatz-mobil-eng))}
+  .abschnitt>.inhalt{padding:18px 0}
+  .abschnitt-eng>.inhalt{padding:18px 0}
+
+  .zeile-5-7{grid-template-columns:1fr;gap:8px}
+
+  .kopf{gap:14px;padding:18px var(--rand) 14px;border-bottom:1px solid var(--linie)}
+  .kopf-linie{display:none}
+  .wortmarke{font-size:10px;line-height:1.3;letter-spacing:.2em}
+  .nav{display:none}
+  .menue-knopf{display:block;margin-left:auto}
+  .kopf-seitenname{margin-left:auto}
+
+  .flaeche{padding:28px var(--rand) 32px}
+  .fuss{margin-top:48px;padding:22px var(--rand);gap:18px}
+
+  .ablauf{grid-template-columns:1fr;border-top:1px solid var(--linie)}
+  .ablauf>*{
+    padding:18px 0;border-right:0;border-bottom:1px solid var(--linie-fein);
+  }
+  .ablauf>*:last-child{border-bottom:0}
+
+  .feldpaar{grid-template-columns:1fr;gap:0}
+  .feldpaar .feld{margin-top:28px}
+
+  .bild-430,.bild-400,.bild-360,.bild-520{height:230px}
+  .bild-260{height:200px}
+
+  .abstand-104,.abstand-96{margin-top:56px}
+  .abstand-80,.abstand-64{margin-top:40px}
+
+  .randnotiz{border-left:0;border-top:1px solid var(--linie);padding:16px 0 0}
+  .partner{gap:28px}
+  .partner img{height:34px}
+}
+
+/* --- 20. Druck ---------------------------------------------------------- */
+
+@media print{
+  .kopf-linie,.nav,.menue-knopf,.menue{display:none}
+  body{background:#fff}
+  a{color:var(--text)}
+}

@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /_design/
 
 Sitemap: https://gehrkebauberatung.de/sitemap.xml

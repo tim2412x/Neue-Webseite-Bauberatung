@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Bausteinkatalog — Gehrke Bauberatung</title>
+<link rel="preload" href="/assets/fonts/spectral-300-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/barlow-500-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+
+<!-- ======================================================================
+     BAUSTEINKATALOG — wird NICHT ausgeliefert.
+     Zeigt jeden Baustein aus assets/site.css als kopierfaehiges Markup.
+     Textbeispiele stammen aus dem Bestand (_design/inventar/).
+     Ansehen:  python3 -m http.server 8080   →  /_design/muster.html
+     ====================================================================== -->
+
+<a class="zum-inhalt" href="#inhalt">Zum Inhalt springen</a>
+
+<!-- ---------- KOPF, Startseite: Wortmarke + Haarlinie + Navigation ------- -->
+<header class="kopf">
+  <a class="wortmarke" href="/">Gehrke Bauberatung</a>
+  <span class="kopf-linie" aria-hidden="true"></span>
+  <nav class="nav" aria-label="Hauptnavigation">
+    <a href="/baubetreuung/">Baubetreuung</a>
+    <a href="/bauberatung/">Bauberatung</a>
+    <a href="/denkmalsanierung/">Denkmal</a>
+    <a href="/bauprojektmanagement/">Verwaltungen</a>
+    <a href="/ueber-juergen/">Über mich</a>
+    <a href="/kontakt/" aria-current="page">Kontakt</a>
+  </nav>
+  <button class="menue-knopf" type="button" aria-expanded="false" aria-controls="menue">Menü</button>
+</header>
+
+<!-- ---------- KOPF, Unterseite: Seitenname in Akzent statt Navigation ----
+<header class="kopf">
+  <a class="wortmarke" href="/">Gehrke Bauberatung</a>
+  <span class="kopf-linie" aria-hidden="true"></span>
+  <span class="kopf-seitenname">Bauberatung</span>
+  <button class="menue-knopf" type="button" aria-expanded="false" aria-controls="menue">Menü</button>
+</header>
+------------------------------------------------------------------------- -->
+
+<!-- ---------- MOBILES MENÜ (Vollflächen-Überlagerung, Wort „Zu") -------- -->
+<div class="menue" id="menue">
+  <div class="menue-kopf">
+    <span class="wortmarke">Gehrke<br>Bauberatung</span>
+    <button class="menue-zu" type="button">Zu</button>
+  </div>
+  <nav class="menue-liste" aria-label="Menü">
+    <a href="/baubetreuung/"><span class="ziffer" aria-hidden="true">01</span>Baubetreuung</a>
+    <a href="/bauberatung/"><span class="ziffer" aria-hidden="true">02</span>Bauberatung</a>
+    <a href="/denkmalsanierung/"><span class="ziffer" aria-hidden="true">03</span>Betreuung Denkmalsanierung</a>
+    <a href="/bauprojektmanagement/"><span class="ziffer" aria-hidden="true">04</span>Bauprojektmanagement</a>
+    <a href="/ueber-juergen/"><span class="ziffer" aria-hidden="true">05</span>Über mich</a>
+    <a href="/kontakt/"><span class="ziffer" aria-hidden="true">06</span>Kontakt</a>
+  </nav>
+</div>
+
+<main id="inhalt" class="seite">
+
+  <!-- ======== 01 HERO 7/5 — keine Marke über der Überschrift ============ -->
+  <section class="bahn hero v v-7-5 oben">
+    <div class="stapel">
+      <h1>Ihr Bauprojekt. Sicher und stressfrei von Anfang an.</h1>
+      <p class="vorspann">30 Jahre Erfahrung als Zimmermeister — jetzt ausschließlich für Sie. Unabhängig, persönlich vor Ort, ohne Provisionen.</p>
+      <p class="fliess-grotesk">Jürgen Gehrke begleitet Sanierung, Umbau und Neubau in Schwäbisch Hall, Heilbronn und Hohenlohe — für private Bauherren, Hausverwaltungen und Architekten.</p>
+      <p class="cta-zeile">
+        <a class="cta" href="/kontakt/">Kostenloses Erstgespräch</a>
+        <span class="cta-zusatz">Antwort in der Regel innerhalb von 24 Stunden</span>
+      </p>
+    </div>
+    <figure>
+      <img class="bild bild-430" src="/assets/juergen-gehrke-beratung-fachwerk.png"
+           alt="Jürgen Gehrke erklärt ein saniertes Fachwerkfenster"
+           width="1252" height="975" loading="eager" fetchpriority="high">
+      <figcaption class="legende">Sanierte Eichenfenster, Region Schwäbisch Hall</figcaption>
+    </figure>
+  </section>
+
+  <!-- ======== 02 ABSCHNITTSGRUPPE mit Randziffern (das Motiv) ========== -->
+  <div class="bahn abstand-104">
+    <div class="gruppe">
+
+      <section class="abschnitt">
+        <span class="ziffer" aria-hidden="true">02.1</span>
+        <div class="inhalt">
+          <h2>Baubetreuung</h2>
+          <p class="fliess">Ich übernehme das Projektmanagement Ihres Bauvorhabens — Koordination aller Gewerke, laufende Qualitätskontrolle, regelmäßige Updates für Sie als Bauherr.</p>
+          <p><a class="cta-text" href="/baubetreuung/">Zur Baubetreuung</a></p>
+        </div>
+      </section>
+
+      <section class="abschnitt">
+        <span class="ziffer" aria-hidden="true">02.2</span>
+        <div class="inhalt">
+          <h2>Bauberatung</h2>
+          <p class="fliess">Risiken erkennen bevor es teuer wird. Kaufberatung für Sanierungsobjekte, Erstbegehungen und unabhängige Zweitmeinungen zu laufenden Projekten.</p>
+          <p><a class="cta-text" href="/bauberatung/">Zur Bauberatung</a></p>
+        </div>
+      </section>
+
+      <section class="abschnitt">
+        <span class="ziffer" aria-hidden="true">02.3</span>
+        <div class="inhalt">
+          <h2>Bauprojektmanagement</h2>
+          <p class="fliess">Technische Projektsteuerung für Kommunen, Bauträger, Hausverwaltungen und WEGs — von der Planung bis zur Abnahme.</p>
+          <p><a class="cta-text" href="/bauprojektmanagement/">Für Verwaltungen</a></p>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- ======== 03 RANDLOSES BILDBAND (ohne .bahn, volle Breite) ========= -->
+  <figure class="band abstand-96">
+    <img class="bild bild-400 bild-mitte" src="/assets/baubetreuung-fachwerk-fassade.png"
+         alt="Baubetreuung an einer Fachwerkfassade in der Region Schwäbisch Hall"
+         width="930" height="620" loading="lazy">
+  </figure>
+
+  <!-- ======== 04 ZITATBLOCK 4/8 auf Flächenton ======================== -->
+  <section class="flaeche v v-4-8 abstand-96">
+    <div>
+      <span class="ziffer" aria-hidden="true">03</span>
+      <p class="fliess-grotesk-eng">Stauferstraße 122<br>74523 Schwäbisch Hall</p>
+    </div>
+    <blockquote class="stapel">
+      <p class="zitat">„Ich sage Ihnen, was das Haus braucht — und was Sie sich sparen können.“</p>
+      <p class="zitat-quelle">Jürgen Gehrke, Inhaber</p>
+      <p class="fliess-grotesk">Inhabergeführt: Sie sprechen mit dem, der auch auf der Baustelle steht. Ein Ansprechpartner vom ersten Aufmaß bis zur Abnahme.</p>
+    </blockquote>
+  </section>
+
+  <!-- ======== 05 ABLAUFBAND 9/3 ====================================== -->
+  <section class="bahn v v-9-3 abstand-96">
+    <div>
+      <span class="ziffer" aria-hidden="true">04</span>
+      <h2 class="nur-fuer-screenreader">Ablauf</h2>
+      <div class="ablauf">
+        <div>
+          <span class="ziffer" aria-hidden="true">Schritt 1</span>
+          <p class="ablauf-titel">Telefonat, 15 Minuten, kostenfrei</p>
+        </div>
+        <div>
+          <span class="ziffer" aria-hidden="true">Schritt 2</span>
+          <p class="ablauf-titel">Ortstermin mit Aufnahme</p>
+        </div>
+        <div>
+          <span class="ziffer" aria-hidden="true">Schritt 3</span>
+          <p class="ablauf-titel">Schriftlicher Kurzbefund</p>
+        </div>
+        <div>
+          <span class="ziffer" aria-hidden="true">Schritt 4</span>
+          <p class="ablauf-titel">Beauftragung, einzeln oder gesamt</p>
+        </div>
+      </div>
+    </div>
+    <p class="randnotiz unten">Einsatzgebiet: Schwäbisch Hall, Heilbronn, Hohenlohe, Crailsheim und angrenzende Gemeinden.</p>
+  </section>
+
+  <!-- ======== 06 TITELZEILE Unterseite 9/3 mit Brotkrume ============== -->
+  <section class="bahn v v-9-3 unten abstand-104">
+    <div>
+      <nav class="brotkrume" aria-label="Brotkrumennavigation">
+        <a href="/">Startseite</a> / Bauberatung
+      </nav>
+      <h2 class="t-h1">Bauberatung &amp; Kaufberatung in Schwäbisch Hall, Heilbronn &amp; Hohenlohe</h2>
+      <p class="fliess-grotesk">Auf der echten Seite ist das ein <code>&lt;h1&gt;</code>. Hier nur zur Ansicht als h2, weil eine Seite genau ein h1 trägt.</p>
+    </div>
+    <p class="randnotiz">Für private Bauherren in der Region. Einzeln beauftragbar.</p>
+  </section>
+
+  <!-- ======== 07 LEISTUNGSUMFANG: Zeile intern 5/7 =================== -->
+  <div class="bahn abstand-96">
+    <div class="gruppe">
+      <section class="abschnitt abschnitt-eng">
+        <span class="ziffer" aria-hidden="true">01</span>
+        <div class="inhalt zeile-5-7">
+          <h3 class="t-listentitel">Kaufberatung &amp; Erstbegehung</h3>
+          <p class="fliess-grotesk-eng">Objektbegehung vor dem Notartermin: tragende Substanz, Dachstuhl, Keller, Haustechnik, Feuchte.</p>
+        </div>
+      </section>
+      <section class="abschnitt abschnitt-eng">
+        <span class="ziffer" aria-hidden="true">02</span>
+        <div class="inhalt zeile-5-7">
+          <h3 class="t-listentitel">Mängel erkennen &amp; einordnen</h3>
+          <p class="fliess-grotesk-eng">Was ist Schönheitsfehler, was ist Kostentreiber — mit Priorität und Kostenspanne.</p>
+        </div>
+      </section>
+      <section class="abschnitt abschnitt-eng">
+        <span class="ziffer" aria-hidden="true">03</span>
+        <div class="inhalt zeile-5-7">
+          <h3 class="t-listentitel">Angebote &amp; Kosten prüfen</h3>
+          <p class="fliess-grotesk-eng">Handwerkerangebote gegen die tatsächlich nötige Leistung gelesen.</p>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ======== 08 FAKTENLISTE auto/1fr (Über-Seite) =================== -->
+  <div class="bahn abstand-96">
+    <div class="gruppe">
+      <section class="abschnitt abschnitt-eng">
+        <span class="ziffer" aria-hidden="true">seit 1989</span>
+        <div class="inhalt"><p class="fliess-grotesk-eng">Selbständig in der Region, Holzbau und Bestandssanierung</p></div>
+      </section>
+      <section class="abschnitt abschnitt-eng">
+        <span class="ziffer" aria-hidden="true">1 : 1</span>
+        <div class="inhalt"><p class="fliess-grotesk-eng">Ein Berater, kein Team, keine Weitergabe an Dritte</p></div>
+      </section>
+      <section class="abschnitt abschnitt-eng">
+        <span class="ziffer" aria-hidden="true">100+</span>
+        <div class="inhalt"><p class="fliess-grotesk-eng">Begleitete Projekte in Schwäbisch Hall, Heilbronn und Hohenlohe</p></div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ======== 09 KUNDENSTIMME ======================================== -->
+  <div class="bahn abstand-96">
+    <div class="gruppe">
+      <section class="abschnitt">
+        <span class="ziffer" aria-hidden="true">05.1</span>
+        <div class="inhalt">
+          <p class="sterne" aria-label="Fünf von fünf Sternen">★★★★★</p>
+          <blockquote>
+            <p class="zitat zitat-klein">„Ohne Herrn Gehrke hätten wir erhebliche Probleme gehabt.“</p>
+            <p class="zitat-quelle">Bruno P. — Immobilieninvestor, Karlsruhe</p>
+          </blockquote>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ======== 10 TABELLE (Verwaltungen / Honorar) ==================== -->
+  <div class="bahn abstand-96">
+    <table class="tabelle">
+      <caption class="nur-fuer-screenreader">Leistungen und Honorar</caption>
+      <thead>
+        <tr><th scope="col">Leistung</th><th scope="col" class="wert">Umfang</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Erstgespräch</td><td class="wert">kostenlos</td></tr>
+        <tr><td>Objektbegehung mit Kurzbefund</td><td class="wert">auf Anfrage</td></tr>
+        <tr><td>Laufende Baubetreuung</td><td class="wert">auf Anfrage</td></tr>
+        <tr><td>Technische Projektsteuerung</td><td class="wert">auf Anfrage</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ======== 11 AUFKLAPPBARE FRAGEN (natives details) =============== -->
+  <div class="bahn abstand-96">
+    <h2>Was Bauherren oft fragen</h2>
+    <div class="faq abstand-64">
+      <details>
+        <summary>Was kostet ein Erstgespräch?</summary>
+        <div class="faq-antwort"><p>Nichts. Das Erstgespräch ist kostenlos und unverbindlich.</p></div>
+      </details>
+      <details>
+        <summary>Arbeiten Sie auch außerhalb der Region?</summary>
+        <div class="faq-antwort"><p>Schwäbisch Hall, Heilbronn, Hohenlohe und Crailsheim sind das Kerngebiet. Darüber hinaus auf Anfrage.</p></div>
+      </details>
+    </div>
+  </div>
+
+  <!-- ======== 12 FORMULAR ============================================ -->
+  <section class="bahn v v-7-5 oben abstand-96">
+    <div class="stapel">
+      <h2>Schreiben Sie mir</h2>
+      <form class="formular" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="7a0fff57-6e74-46a7-8ca1-c21e5caff109">
+        <input type="hidden" name="subject" value="Neue Anfrage über die Website">
+        <input type="hidden" name="from_name" value="Gehrke Bauberatung – Website">
+        <div class="honigtopf" aria-hidden="true">
+          <label for="botcheck">Bitte leer lassen</label>
+          <input type="checkbox" id="botcheck" name="botcheck" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="feldpaar">
+          <p class="feld">
+            <label for="vorname">Vorname *</label>
+            <input type="text" id="vorname" name="Vorname" placeholder="Max" required autocomplete="given-name">
+          </p>
+          <p class="feld">
+            <label for="nachname">Nachname *</label>
+            <input type="text" id="nachname" name="Nachname" placeholder="Mustermann" required autocomplete="family-name">
+          </p>
+        </div>
+
+        <p class="feld">
+          <label for="email">E-Mail-Adresse *</label>
+          <input type="email" id="email" name="email" placeholder="max@beispiel.de" required autocomplete="email">
+        </p>
+
+        <p class="feld" data-fehler>
+          <label for="telefon">Telefonnummer</label>
+          <input type="tel" id="telefon" name="Telefon" placeholder="+49 172 …" autocomplete="tel"
+                 aria-describedby="telefon-fehler">
+          <span class="feld-fehler" id="telefon-fehler">So sieht ein Fehler aus: Textzeile in Akzent, Feldlinie 2 px. Keine rote Fläche, kein Symbol.</span>
+        </p>
+
+        <p class="feld">
+          <label for="leistung">Worum geht es? *</label>
+          <select id="leistung" name="Leistung" required>
+            <option value="" disabled selected>Bitte auswählen …</option>
+            <option value="Baubetreuung">Baubetreuung (Neubau / Sanierung)</option>
+            <option value="Bauberatung">Bauberatung (einmalige Beratung)</option>
+            <option value="Bauprojektmanagement">Bauprojektmanagement</option>
+            <option value="Sonstiges">Sonstiges</option>
+          </select>
+        </p>
+
+        <p class="feld">
+          <label for="nachricht">Ihr Anliegen *</label>
+          <textarea id="nachricht" name="Nachricht" required
+                    placeholder="Kurze Beschreibung Ihres Vorhabens — Ort, Art des Gebäudes, was genau Sie beschäftigt …"></textarea>
+        </p>
+
+        <label class="zustimmung">
+          <input type="checkbox" required>
+          <span>Mit dem Absenden stimmen Sie zu, dass Ihre Angaben zur Bearbeitung Ihrer Anfrage verwendet werden. Weitere Infos finden Sie in unserer <a href="/datenschutz/">Datenschutzerklärung</a>.</span>
+        </label>
+
+        <p class="cta-zeile">
+          <button class="cta-2" type="submit">Anfrage absenden</button>
+          <span class="cta-zusatz">Ich antworte werktags innerhalb von 24 Stunden.</span>
+        </p>
+      </form>
+    </div>
+
+    <div>
+      <div class="randnotiz stapel">
+        <p class="fliess-grotesk-eng">Gehrke Bauberatung und -betreuung UG<br>Stauferstraße 122<br>74523 Schwäbisch Hall</p>
+        <p class="fliess-grotesk-eng">
+          <a href="tel:+491727410650">+49 172 7410650</a><br>
+          <a href="mailto:info@gehrkebauberatung.de">info@gehrkebauberatung.de</a><br>
+          <a href="https://wa.me/491727410650">WhatsApp</a>
+        </p>
+      </div>
+      <figure class="abstand-64">
+        <img class="bild bild-260" src="/assets/bauberatung-begehung.jpg"
+             alt="Ortsbegehung mit Aufmaß im Bestand"
+             width="930" height="620" loading="lazy">
+        <figcaption class="legende">Ortstermin mit Aufmaß</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ======== 13 ORTSLISTE 3/9 auf Flächenton (SEO-Träger) =========== -->
+  <section class="flaeche v v-3-9 abstand-80">
+    <h2>Einsatzgebiet</h2>
+    <p class="fliess-grotesk-eng">Schwäbisch Hall, Heilbronn, Crailsheim, Öhringen, Künzelsau, Waldenburg, Bretzfeld, Ilshofen, Langenburg, Neuenstein und angrenzende Gemeinden. Außerhalb dieses Gebiets auf Anfrage.</p>
+  </section>
+
+  <!-- ======== 14 PARTNERLOGOS ======================================== -->
+  <div class="bahn abstand-80">
+    <p class="brotkrume">Netzwerk zuverlässiger Partner</p>
+    <div class="partner">
+      <img src="/assets/partner-drechsler.jpeg" alt="Holzbau Drechsler" width="240" height="125" loading="lazy">
+      <img src="/assets/partner-burk.jpg" alt="Bürk Sägewerk &amp; Holzbau" width="447" height="122" loading="lazy">
+      <img src="/assets/partner-strecker.png" alt="Strecker Stukkateurbetrieb" width="399" height="189" loading="lazy">
+      <img src="/assets/partner-podstawek.jpg" alt="Podstawek Dachabdichtungen" width="763" height="472" loading="lazy">
+      <img src="/assets/partner-augsten.png" alt="Augsten Elektro" width="744" height="318" loading="lazy">
+    </div>
+  </div>
+
+  <!-- ======== 15 RECHTSTEXT (Impressum, Datenschutz, AGB) ============ -->
+  <div class="bahn abstand-96">
+    <div class="gruppe">
+      <section class="abschnitt">
+        <span class="ziffer" aria-hidden="true">§ 1</span>
+        <div class="inhalt rechtstext">
+          <h2>Geltungsbereich</h2>
+          <p>Rechtstexte werden wortgleich aus dem Bestand übernommen. Die Randziffer trägt die Paragraphennummer, sie ersetzt keine Überschrift.</p>
+          <ul><li>Aufzählung im Rechtstext</li><li>Gedankenstrich in Akzent statt Aufzählungspunkt</li></ul>
+        </div>
+      </section>
+    </div>
+  </div>
+
+</main>
+
+<!-- ---------- FUSS ------------------------------------------------------ -->
+<footer class="fuss">
+  <span class="fuss-marke">Gehrke Bauberatung und -betreuung UG</span>
+  <nav class="fuss-links" aria-label="Rechtliches">
+    <a href="/kontakt/">Kontakt</a>
+    <a href="/impressum/">Impressum</a>
+    <a href="/datenschutz/">Datenschutz</a>
+    <a href="/agb/">AGB</a>
+  </nav>
+</footer>
+
+<script>
+// Mobiles Menue: offen oder zu. Mehr Client-Zustand gibt es nicht (REDESIGN §12).
+(function () {
+  var knopf = document.querySelector('.menue-knopf');
+  var menue = document.getElementById('menue');
+  if (!knopf || !menue) return;
+  function setzen(offen) {
+    menue.toggleAttribute('data-offen', offen);
+    knopf.setAttribute('aria-expanded', String(offen));
+    document.documentElement.style.overflow = offen ? 'hidden' : '';
+  }
+  knopf.addEventListener('click', function () { setzen(true); });
+  menue.querySelector('.menue-zu').addEventListener('click', function () { setzen(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setzen(false); });
+})();
+</script>
+
+</body>
+</html>

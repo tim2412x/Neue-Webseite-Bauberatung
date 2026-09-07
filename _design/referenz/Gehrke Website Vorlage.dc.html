@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Barlow:wght@400;500&display=swap">
+<style>
+body{margin:0;background:#dcd8d0;font-family:"Barlow",sans-serif}
+a{color:#8A3B12;text-decoration:none}
+a:hover{color:#17171A}
+.pg{width:1180px;background:#F7F5F0;color:#17171A;scroll-margin-top:20px}
+.pglabel{display:flex;align-items:baseline;gap:10px;margin:0 0 10px;font:500 11px/1 "Barlow",sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#17171A}
+.pgnum{padding:3px 7px;background:#17171A;color:#F7F5F0;letter-spacing:.1em}
+.wrap{display:flex;flex-direction:column;gap:56px;padding:44px}
+h1,h2,h3,h4,p{margin:0}
+</style></helmet>
+
+<div class="wrap">
+
+<div>
+<div class="pglabel"><span class="pgnum">00</span><span>Bauteilkatalog — Motiv, Palette, Typografie, Bausteine</span></div>
+<div class="pg" data-screen-label="00 Bauteilkatalog">
+
+  <div style="display:grid;grid-template-columns:9fr 3fr;gap:56px;padding:56px 64px 0;align-items:baseline">
+    <div>
+      <div style="font:500 11px/1 'Barlow',sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#4A5D3C">Gestaltungsmotiv</div>
+      <h1 style="margin-top:22px;font-family:'Spectral',serif;font-weight:300;font-size:48px;line-height:1.14;letter-spacing:-.01em;max-width:26ch">Aufnahme — Randziffern an einer durchlaufenden Protokolllinie.</h1>
+      <p style="margin-top:26px;max-width:66ch;font:300 18px/1.8 'Spectral',serif">Jede Seite ist ein Protokoll. Abschnitte tragen eine Ordnungsziffer am linken Rand (01, 02.1, 02.2 …), jeder Abschnitt beginnt und endet an einer 1 px Haarlinie, die über die gesamte Satzbreite läuft. Die Ziffer steht in Barlow, klein und gesperrt; der Inhalt in Spectral. Das Motiv wiederholt sich unverändert auf allen Unterseiten — es ist die einzige Dekoration, die die Seite besitzt.</p>
+    </div>
+    <div style="font:400 13px/1.8 'Barlow',sans-serif;border-left:1px solid #17171A;padding-left:20px">
+      Keine Karten, keine Schatten, keine Verläufe, keine Icons.<br><br>Eckenradius: 0 px, ausnahmslos.<br><br>Struktur entsteht aus Linie, Spaltenverhältnis, Schriftgröße und Weißraum.
+    </div>
+  </div>
+
+  <div style="padding:64px 64px 0">
+    <div style="height:1px;background:#17171A"></div>
+    <div style="display:grid;grid-template-columns:auto 1fr;column-gap:56px">
+      <div style="padding:30px 0;font:400 13px/1 'Barlow',sans-serif;letter-spacing:.16em;color:#8A3B12">01</div>
+      <div style="padding:28px 0 30px;border-bottom:1px solid rgba(23,23,26,.2)">
+        <h3 style="font-family:'Spectral',serif;font-weight:400;font-size:26px;line-height:1.2">Farbe — fünf feste Werte, keine Zwischenstufen</h3>
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:20px;margin-top:24px">
+          <div><div style="height:76px;background:#F7F5F0;border:1px solid #17171A"></div><div style="margin-top:10px;font:500 11px/1.5 'Barlow',sans-serif;letter-spacing:.14em;text-transform:uppercase">Grundton</div><div style="font:400 13px/1.5 'Barlow',sans-serif">#F7F5F0</div></div>
+          <div><div style="height:76px;background:#E8E2D6;border:1px solid #17171A"></div><div style="margin-top:10px;font:500 11px/1.5 'Barlow',sans-serif;letter-spacing:.14em;text-transform:uppercase">Flächenton</div><div style="font:400 13px/1.5 'Barlow',sans-serif">#E8E2D6</div></div>
+          <div><div style="height:76px;background:#17171A"></div><div style="margin-top:10px;font:500 11px/1.5 'Barlow',sans-serif;letter-spacing:.14em;text-transform:uppercase">Textton</div><div style="font:400 13px/1.5 'Barlow',sans-serif">#17171A</div></div>
+          <div><div style="height:76px;background:#8A3B12"></div><div style="margin-top:10px;font:500 11px/1.5 'Barlow',sans-serif;letter-spacing:.14em;text-transform:uppercase">Akzent</div><div style="font:400 13px/1.5 'Barlow',sans-serif">#8A3B12</div></div>
+          <div><div style="height:76px;background:#4A5D3C"></div><div style="margin-top:10px;font:500 11px/1.5 'Barlow',sans-serif;letter-spacing:.14em;text-transform:uppercase">Signalton</div><div style="font:400 13px/1.5 'Barlow',sans-serif">#4A5D3C</div></div>
+        </div>
+        <p style="margin-top:18px;max-width:80ch;font:400 14px/1.7 'Barlow',sans-serif">Haarlinien sind Textton bei 100 % (Abschnittsgrenze) oder 20 % (Zeilentrenner innerhalb eines Abschnitts). Das ist die einzige erlaubte Transparenz. Akzent trägt Handlungsaufrufe und Ziffern, Signalton ausschließlich Abschnittsmarken.</p>
+      </div>
+
+      <div style="padding:30px 0;font:400 13px/1 'Barlow',sans-serif;letter-spacing:.16em;color:#8A3B12">02</div>
+      <div style="padding:28px 0 30px;border-bottom:1px solid rgba(23,23,26,.2)">
+        <h3 style="font-family:'Spectral',serif;font-weight:400;font-size:26px;line-height:1.2">Schrift — Spectral für Inhalt, Barlow für Ordnung</h3>
+        <div style="display:grid;grid-template-columns:7fr 5fr;gap:48px;margin-top:24px">
+          <div>
+            <div style="font-family:'Spectral',serif;font-weight:300;font-size:54px;line-height:1.14;letter-spacing:-.01em">Spectral Light 300</div>
+            <p style="margin-top:14px;font:400 14px/1.7 'Barlow',sans-serif">Seitentitel 54/1.14 · Abschnittstitel 30/1.2 · Fließtext 17–19/1.75 · Zitat 34/1.4 kursiv. Serif mit ausgeprägtem Charakter, schmal laufend, ruhig im Grau.</p>
+          </div>
+          <div>
+            <div style="font:500 22px/1.3 'Barlow',sans-serif;letter-spacing:.24em;text-transform:uppercase">Barlow Medium</div>
+            <p style="margin-top:14px;font:400 14px/1.7 'Barlow',sans-serif">Ordnungsziffern, Navigation, Marken, Bildlegenden, Tabellen, Formulare. Immer klein (11–15 px), gesperrt ab 0.14 em, Versalien nur bis 13 px.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding:30px 0;font:400 13px/1 'Barlow',sans-serif;letter-spacing:.16em;color:#8A3B12">03</div>
+      <div style="padding:28px 0 30px;border-bottom:1px solid #17171A">
+        <h3 style="font-family:'Spectral',serif;font-weight:400;font-size:26px;line-height:1.2">Bausteine</h3>
+        <div style="display:grid;grid-template-columns:5fr 7fr;gap:48px;margin-top:26px;align-items:start">
+          <div style="display:flex;flex-direction:column;gap:26px">
+            <div>
+              <div style="font:500 11px/1 'Barlow',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#4A5D3C">Handlungsaufruf, primär</div>
+              <a href="#00" style="display:inline-block;margin-top:12px;padding-bottom:7px;border-bottom:1px solid #8A3B12;font:500 13px/1 'Barlow',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#8A3B12" style-hover="color:#17171A;border-bottom-color:#17171A">Begehung anfragen</a>
+            </div>
+            <div>
+              <div style="font:500 11px/1 'Barlow',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#4A5D3C">Handlungsaufruf, sekundär</div>
+              <a href="#00" style="display:inline-block;margin-top:12px;padding:12px 20px;border:1px solid #17171A;font:500 12px/1 'Barlow',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#17171A" style-hover="background:#17171A;color:#F7F5F0">07942 — anrufen</a>
+            </div>
+            <div>
+              <div style="font:500 11px/1 'Barlow',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#4A5D3C">Formularfeld</div>
+              <div style="margin-top:12px;border-bottom:1px solid #17171A;padding-bottom:8px;display:flex;justify-content:space-between;align-items:baseline">
+                <span style="font:400 16px/1 'Barlow',sans-serif;color:rgba(23,23,26,.7)">Ort und Objektart</span>
+                <span style="font:400 11px/1 'Barlow',sans-serif;letter-spacing:.16em;color:#8A3B12">Pflicht</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div style="font:500 11px/1 'Barlow',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#4A5D3C">Bild mit Legende — Bilder laufen randlos oder spaltenbreit, nie beschnitten in Rundungen</div>
+            <img src="uploads/bauberatung-begehung.jpg" alt="Ortsbegehung im Bestand, Aufnahme des Dachgeschosses" style="display:block;width:100%;height:220px;object-fit:cover;margin-top:12px">
+            <div style="margin-top:12px;font:400 12px/1.5 'Barlow',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:rgba(23,23,26,.7)">Ortsbegehung, Kreis Hohenlohe</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:3fr 9fr;gap:56px;padding:56px 64px;background:#E8E2D6;margin-top:64px">
+    <div style="font:500 11px/1.6 'Barlow',sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#4A5D3C">Raster und Rhythmus</div>
+    <div style="font:400 15px/1.85 'Barlow',sans-serif;max-width:84ch">
+      Satzspiegel 1180 px, Außenrand 64 px, Zwölfspalter, Spaltenabstand 56 px. Abschnittsabstand 96–104 px, innerhalb eines Abschnitts 26–34 px. Erlaubte Verhältnisse: 7/5, 5/7, 9/3, 3/9, 4/8, auto/1fr — nie 4/4/4. Auf jeder Seite müssen mindestens drei Abschnitte ein anderes Verhältnis tragen als der Rest.
+    </div>
+  </div>
+</div>
+</div>
+
+<div>
+<div class="pglabel"><span class="pgnum">01</span><span>Startseite</span></div>
+<div class="pg" data-screen-label="01 Startseite">
+
+  <div style="display:flex;align-items:baseline;gap:36px;padding:30px 64px 22px">
+    <div style="font:500 12px/1 'Barlow',sans-serif;letter-spacing:.28em;text-transform:uppercase">Gehrke — Bauberatung und Betreuung</div>
+    <div style="flex:1;height:1px;background:#17171A"></div>
+    <div style="display:flex;gap:26px;font:400 12px/1 'Barlow',sans-serif;letter-spacing:.16em;text-transform:uppercase">
+      <a href="#02" style="color:#17171A">Bauberatung</a><a href="#03" style="color:#17171A">Baubetreuung</a><a href="#04" style="color:#17171A">Fachwerk</a><a href="#06" style="color:#17171A">Über mich</a><a href="#08" style="color:#8A3B12">Kontakt</a>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:7fr 5fr;gap:56px;padding:76px 64px 0;align-items:start">
+    <div>
+      <div style="font:500 11px/1 'Barlow',sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#4A5D3C">Aufnahme 01 — Erstgespräch</div>
+      <h1 style="margin-top:26px;max-width:26ch;font-family:'Spectral',serif;font-weight:300;font-size:54px;line-height:1.14;letter-spacing:-.01em;text-wrap:pretty">Jede Begehung endet schriftlich.</h1>
+      <p style="margin-top:30px;max-width:56ch;font:300 19px/1.8 'Spectral',serif">Was aufgenommen wurde, was zu tun ist, in welcher Reihenfolge und was es kostet. Daran halten sich Handwerker, Bauherr und Berater gleichermaßen.</p>
+      <p style="margin-top:22px;max-width:60ch;font:400 15px/1.75 'Barlow',sans-serif;color:rgba(23,23,26,.78)">Jürgen Gehrke kommt aus dem Holzbau und begleitet seit über 25 Jahren Sanierung, Umbau und Neubau im Kreis Hohenlohe und um Schwäbisch Hall — für private Bauherren, Hausverwaltungen und Architekten.</p>
+      <div style="display:flex;align-items:center;gap:28px;margin-top:38px">
+        <a href="#08" style="display:inline-block;padding-bottom:7px;border-bottom:1px solid #8A3B12;font:500 13px/1 'Barlow',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#8A3B12" style-hover="color:#17171A;border-bottom-color:#17171A">Begehung anfragen</a>
+        <span style="font:400 14px/1 'Barlow',sans-serif;letter-spacing:.06em">Rückruf am selben Tag</span>
+      </div>
+    </div>
+    <div>
+      <img src="uploads/juergen-gehrke-beratung-fachwerk.png" alt="Jürgen Gehrke erklärt ein saniertes Fachwerkfenster" style="display:block;width:100%;height:430px;object-fit:cover">
+      <div style="margin-top:14px;font:400 12px/1.5 'Barlow',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:rgba(23,23,26,.7)">Sanierte Eichenfenster, Hohenlohe</div>
+    </div>
+  </div>
+
+  <div style="padding:104px 64px 0">
+    <div style="height:1px;background:#17171A"></div>
+    <div style="display:grid;grid-template-columns:auto 1fr;column-gap:56px">
+      <div style="padding:34px 0;font:400 13px/1 'Barlow',sans-serif;letter-spacing:.16em;color:#8A3B12">02.1</div>
+      <div style="padding:32px 0 30px;border-bottom:1px solid rgba(23,23,26,.2)">
+        <h2 style="font-family:'Spectral',serif;font-weight:400;font-size:30px;line-height:1.2">Beratung vor dem Kauf</h2>
+        <p style="margin-top:12px;max-width:70ch;font:300 17px/1.75 'Spectral',serif">Objektbegehung vor dem Notartermin: tragende Substanz, Dachstuhl, Keller, Haustechnik, Feuchte. Sie erhalten ein Protokoll mit Mängeln, Prioritäten und Kostenspanne.</p>
+        <a href="#02" style="display:inline-block;margin-top:16px;font:500 12px/1 'Barlow',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#8A3B12">Zur Bauberatung</a>
+      </div>
+      <div style="padding:34px 0;font:400 13px/1 'Barlow',sans-serif;letter-spacing:.16em;color:#8A3B12">02.2</div>
+      <div style="padding:32px 0 30px;border-bottom:1px solid rgba(23,23,26,.2)">
+        <h2 style="font-family:'Spectral',serif;font-weight:400;font-size:30px;line-height:1.2">Baubetreuung im Bestand</h2>
+        <p style="margin-top:12px;max-width:70ch;font:300 17px/1.75 'Spectral',serif">Leistungen ausschreiben, Angebote vergleichen, Gewerke koordinieren, Rechnungen gegen die erbrachte Leistung prüfen, Abnahme protokollieren.</p>
+        <a href="#03" style="display:inline-block;margin-top:16px;font:500 12px/1 'Barlow',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#8A3B12">Zur Baubetreuung</a>
+      </div>
+      <div style="padding:34px 0;font:400 13px/1 'Barlow',sans-serif;letter-spacing:.16em;color:#8A3B12">02.3</div>
+      <div style="padding:32px 0 30px;border-bottom:1px solid rgba(23,23,26,.2)">
+        <h2 style="font-family:'Spectral',serif;font-weight:400;font-size:30px;line-height:1.2">Fachwerk und Sanierung</h2>
+        <p style="margin-top:12px;max-width:70ch;font:300 17px/1.75 'Spectral',serif">Gefüge, Ausfachung, Fenster und Feuchte. Ein Fachwerkhaus verzeiht viel — nur keine falsche Dämmung. Sanierung mit dem Bestand statt gegen ihn.</p>
+        <a href="#04" style="display:inline-block;margin-top:16px;font:500 12px/1 'Barlow',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#8A3B12">Zum Fachwerk</a>
+      </div>
+      <div style="padding:34px 0;font:400 13px/1 'Barlow',sans-serif;letter-spacing:.16em;color:#8A3B12">02.4</div>
+      <div style="padding:32px 0 30px;border-bottom:1px solid #17171A">
+        <h2 style="font-family:'Spectral',serif;font-weight:400;font-size:30px;line-height:1.2">Verwaltungen und Investoren</h2>
+        <p style="margin-top:12px;max-width:70ch;font:300 17px/1.75 'Spectral',serif">Objektaufnahmen über mehrere Einheiten, Instandhaltungs- und Budgetplanung, Begleitung wiederkehrender Sanierungszyklen.</p>
+        <a href="#05" style="display:inline-block;margin-top:16px;font:500 12px/1 'Barlow',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#8A3B12">Für Verwaltungen</a>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:96px">
+    <img src="uploads/baubetreuung-fachwerk-fassade.png" alt="Baubetreuung an einer Fachwerkfassade im Kreis Hohenlohe" style="display:block;width:100%;height:400px;object-fit:cover;object-position:center 45%">
+  </div>
+
+  <div style="display:grid;grid-template-columns:4fr 8fr;gap:56px;padding:80px 64px;background:#E8E2D6">
+    <div>
+      <div style="font:500 11px/1 'Barlow',sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#4A5D3C">Aufnahme 03 — Der Berater</div>
+      <div style="margin-top:40px;font:400 15px/1.9 'Barlow',sans-serif">Stauferstraße 122<br>74632 Neuenstein<br><span style="color:#8A3B12">Rückruf am selben Tag</span></div>
+    </div>
+    <div>
+      <p style="max-width:34ch;font:300 italic 34px/1.4 'Spectral',serif">„Ich sage Ihnen, was das Haus braucht — und was Sie sich sparen können.“</p>
+      <div style="margin-top:28px;font:500 12px/1 'Barlow',sans-serif;letter-spacing:.24em;text-transform:uppercase">Jürgen Gehrke, Inhaber</div>
+      <p style="margin-top:36px;max-width:60ch;font:400 15px/1.75 'Barlow',sans-serif;color:rgba(23,23,26,.8)">Inhabergeführt: Sie sprechen mit dem, der auch auf der Baustelle steht. Ein Ansprechpartner vom ersten Aufmaß bis zur Abnahme.</p>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:9fr 3fr;gap:56px;padding:60px 64px 0">
+    <div>
+      <div style="font:500 11px/1 'Barlow',sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#4A5D3C">Aufnahme 04 — Ablauf</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:34px;border-top:1px solid #17171A">
+        <div style="padding:24px 24px 24px 0;border-right:1px solid rgba(23,23,26,.2)"><div style="font:400 13px/1 'Barlow',sans-serif;letter-spacing:.16em;color:#8A3B12">Schritt 1</div><div style="margin-top:12px;font:300 20px/1.35 'Spectral',serif">Telefonat, 15 Minuten, kostenfrei</div></div>
+        <div style="padding:24px;border-right:1px solid rgba(23,23,26,.2)"><div style="font:400 13px/1 'Barlow',sans-serif;letter-spacing:.16em;color:#8A3B12">Schritt 2</div><div style="margin-top:12px;font:300 20px/1.35 'Spectral',serif">Ortstermin mit Aufnahme</div></div>
+        <div style="padding:24px;border-right:1px solid rgba(23,23,26,.2)"><div style="font:400 13px/1 'Barlow',sans-serif;letter-spacing:.16em;color:#8A3B12">Schritt 3</div><div style="margin-top:12px;font:300 20px/1.35 'Spectral',serif">Schriftlicher Kurzbefund</div></div>
+        <div style="padding:24px 0 24px 24px"><div style="font:400 13px/1 'Barlow',sans-serif;letter-spacing:.16em;color:#8A3B12">Schritt 4</div><div style="margin-top:12px;font:300 20px/1.35 'Spectral',serif">Beauftragung, einzeln oder gesamt</div></div>
+      </div>
+    </div>
+    <div style="align-self:end;font:400 14px/1.8 'Barlow',sans-serif;border-left:1px solid #17171A;padding-left:20px">Einsatzgebiet: Kreis Hohenlohe, Schwäbisch Hall und angrenzende Gemeinden.</div>
+  </div>
+
+  <div style="display:flex;align-items:baseline;justify-content:space-between;gap:40px;margin-top:88px;padding:26px 64px;border-top:1px solid #17171A">
+    <div style="font:500 12px/1 'Barlow',sans-serif;letter-spacing:.24em;text-transform:uppercase">Gehrke Bauberatung und Betreuung</div>
+    <div style="display:flex;gap:24px;font:400 12px/1 'Barlow',sans-serif;letter-spacing:.14em;text-transform:uppercase"><a href="#08" style="color:#17171A">Kontakt</a><a href="#09" style="color:#17171A">Impressum</a><a href="#09" style="color:#17171A">Datenschutz</a></div>
+  </div>
+</div>
+</div>
+
+<div>
+<div class="pglabel"><span class="pgnum">02</span><span>Leistungsseite — Muster für Bauberatung, Baubetreuung, Fachwerk</span></div>
+<div class="pg" data-screen-label="02 Leistungsseite">
+
+  <div style="display:flex;align-items:baseline;gap:36px;padding:30px 64px 22px">
+    <div style="font:500 12px/1 'Barlow',sans-serif;letter-spacing:.28em;text-transform:uppercase">Gehrke — Bauberatung und Betreuung</div>
+    <div style="flex:1;height:1px;background:#17171A"></div>
+    <div style="font:400 12px/1 'Barlow',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8A3B12">Bauberatung</div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:9fr 3fr;gap:56px;padding:64px 64px 0;align-items:end">
+    <div>
+      <div style="font:400 13px/1 'Barlow',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:rgba(23,23,26,.6)">Startseite / Bauberatung</div>
+      <h1 style="margin-top:22px;max-width:24ch;font-family:'Spectral',serif;font-weight:300;font-size:54px;line-height:1.14;letter-spacing:-.01em">Bauberatung vor dem Kauf</h1>
+    </div>
+    <div style="font:400 14px/1.8 'Barlow',sans-serif;border-left:1px solid #17171A;padding-left:20px">Für private Bauherren im Kreis Hohenlohe und um Schwäbisch Hall. Einzeln beauftragbar.</div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:5fr 7fr;gap:56px;padding:60px 64px 0;align-items:start">
+    <img src="uploads/bauberatung-fachwerk-begehung.png" alt="Begehung eines Fachwerk-Innenraums vor dem Kauf" style="display:block;width:100%;height:360px;object-fit:cover">
+    <div>
+      <p style="max-width:56ch;font:300 19px/1.8 'Spectral',serif">Ein Kaufobjekt zeigt seine Kosten nicht im Exposé. Ich gehe mit Ihnen durch das Haus, bevor Sie unterschreiben, und sage Ihnen, was in den nächsten fünf Jahren unvermeidlich ist.</p>
+      <p style="margin-top:20px;max-width:64ch;font:400 15px/1.8 'Barlow',sans-serif">Die Aufnahme dauert je nach Objektgröße zwei bis vier Stunden. Sie erhalten den Kurzbefund schriftlich, in der Reihenfolge der Dringlichkeit, mit Kostenspannen aus laufenden Projekten in der Region.</p>
+    </div>
+  </div>
+
+  <div style="padding:88px 64px 0">
+    <div style="height:1px;background:#17171A"></div>
+    <div style="display:grid;grid-template-columns:auto 1fr;column-gap:56px">
+      <div style="padding:26px 0;font:400 13px/1 'Barlow',sans-serif;letter-spacing:.16em;color:#8A3B12">01</div>
+      <div style="padding:24px 0;border-bottom:1px solid rgba(23,23,26,.2);display:grid;grid-template-columns:5fr 7fr;gap:40px;align-items:baseline">
+        <div style="font:300 22px/1.35 'Spectral',serif">Tragwerk und Gefüge</div>
+        <div style="font:400 15px/1.75 'Barlow',sans-serif">Dachstuhl, Decken, Schwellen, Auflager, sichtbare Setzungen</div>
+      </div>
+      <div style="padding:26px 0;font:400 13px/1 'Barlow',sans-serif;letter-spacing:.16em;color:#8A3B12">02</div>
+      <div style="padding:24px 0;border-bottom:1px solid rgba(23,23,26,.2);display:grid;grid-template-columns:5fr 7fr;gap:40px;align-items:baseline">
+        <div style="font:300 22px/1.35 'Spectral',serif">Feuchte und Bauphysik</div>
+        <div style="font:400 15px/1.75 'Barlow',sans-serif">Keller, Sockel, Ausfachung, Wärmebrücken, Lüftungssituation</div>
+      </div>
+      <div style="padding:26px 0;font:400 13px/1 'Barlow',sans-serif;letter-spacing:.16em;color:#8A3B12">03</div>
+      <div style="padding:24px 0;border-bottom:1px solid rgba(23,23,26,.2);display:grid;grid-template-columns:5fr 7fr;gap:40px;align-items:baseline">
+        <div style="font:300 22px/1.35 'Spectral',serif">Haustechnik</div>
+        <div style="font:400 15px/1.75 'Barlow',sans-serif">Alter und Restnutzungsdauer von Heizung, Leitungen, Elektrik</div>
+      </div>
+      <div style="padding:26px 0;font:400 13px/1 'Barlow',sans-serif;letter-spacing:.16em;color:#8A3B12">04</div>
+      <div style="padding:24px 0;border-bottom:1px solid #17171A;display:grid;grid-template-columns:5fr 7fr;gap:40px;align-items:baseline">
+        <div style="font:300 22px/1.35 'Spectral',serif">Kostenspanne</div>
+        <div style="font:400 15px/1.75 'Barlow',sans-serif">Sofortmaßnahmen, mittelfristig, verzichtbar — jeweils mit Bandbreite</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:3fr 9fr;gap:56px;padding:64px;background:#E8E2D6;margin-top:88px">
+    <div style="font:500 11px/1.6 'Barlow',sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#4A5D3C">Nächster Schritt</div>
+    <div>
+      <p style="max-width:40ch;font:300 30px/1.35 'Spectral',serif">Rufen Sie an, bevor Sie unterschreiben.</p>
+      <div style="display:flex;align-items:center;gap:28px;margin-top:26px">
+        <a href="#08" style="display:inline-block;padding-bottom:7px;border-bottom:1px solid #8A3B12;font:500 13px/1 'Barlow',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#8A3B12">Termin anfragen</a>
+        <span style="font:400 14px/1 'Barlow',sans-serif">Antwort in 24 Stunden</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex;align-items:baseline;justify-content:space-between;gap:40px;padding:26px 64px;border-top:1px solid #17171A">
+    <div style="font:500 12px/1 'Barlow',sans-serif;letter-spacing:.24em;text-transform:uppercase">Gehrke Bauberatung und Betreuung</div>
+    <div style="display:flex;gap:24px;font:400 12px/1 'Barlow',sans-serif;letter-spacing:.14em;text-transform:uppercase"><a href="#08" style="color:#17171A">Kontakt</a><a href="#09" style="color:#17171A">Impressum</a></div>
+  </div>
+</div>
+</div>
+
+<div>
+<div class="pglabel"><span class="pgnum">05</span><span>Für Verwaltungen und Investoren — sachliche Variante, Tabellenlogik</span></div>
+<div class="pg" data-screen-label="05 Verwaltungen">
+
+  <div style="display:flex;align-items:baseline;gap:36px;padding:30px 64px 22px">
+    <div style="font:500 12px/1 'Barlow',sans-serif;letter-spacing:.28em;text-transform:uppercase">Gehrke — Bauberatung und Betreuung</div>
+    <div style="flex:1;height:1px;background:#17171A"></div>
+    <div style="font:400 12px/1 'Barlow',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8A3B12">Verwaltungen und Investoren</div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:7fr 5fr;gap:56px;padding:64px 64px 0;align-items:start">
+    <div>
+      <div style="font:500 11px/1 'Barlow',sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#4A5D3C">Aufnahme 01 — Auftraggeber mit Bestand</div>
+      <h1 style="margin-top:22px;max-width:26ch;font-family:'Spectral',serif;font-weight:300;font-size:54px;line-height:1.14;letter-spacing:-.01em">Ein Ansprechpartner für viele Einheiten.</h1>
+      <p style="margin-top:26px;max-width:58ch;font:300 18px/1.8 'Spectral',serif">Hausverwaltungen, Architekten und Eigentümer mit mehreren Objekten brauchen keine Einzelgutachten, sondern eine fortgeschriebene Aufnahme über den ganzen Bestand.</p>
+    </div>
+    <div style="border-top:1px solid #17171A;padding-top:20px">
+      <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(23,23,26,.2);font:400 14px/1.5 'Barlow',sans-serif"><span>Objektaufnahme je Einheit</span><span style="color:#8A3B12">nach Aufwand</span></div>
+      <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(23,23,26,.2);font:400 14px/1.5 'Barlow',sans-serif"><span>Instandhaltungsplanung</span><span style="color:#8A3B12">Pauschale</span></div>
+      <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(23,23,26,.2);font:400 14px/1.5 'Barlow',sans-serif"><span>Baubetreuung Sanierungszyklus</span><span style="color:#8A3B12">Stundensatz</span></div>
+      <div style="display:flex;justify-content:space-between;padding:12px 0;font:400 14px/1.5 'Barlow',sans-serif"><span>Rahmenvereinbarung</span><span style="color:#8A3B12">auf Anfrage</span></div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:6fr 6fr;gap:0;margin-top:80px;border-top:1px solid #17171A">
+    <div style="padding:48px 56px 48px 64px;border-right:1px solid rgba(23,23,26,.2)">
+      <div style="font:400 13px/1 'Barlow',sans-serif;letter-spacing:.16em;color:#8A3B12">02.1</div>
+      <h2 style="margin-top:14px;font:400 26px/1.25 'Spectral',serif">Aufnahme im laufenden Betrieb</h2>
+      <p style="margin-top:12px;max-width:48ch;font:400 15px/1.8 'Barlow',sans-serif">Begehung mit Mieterkontakt, Dokumentation je Einheit, Priorisierung nach Verkehrssicherheit, Instandhaltungsstau und Wirtschaftlichkeit.</p>
+    </div>
+    <div style="padding:48px 64px 48px 56px">
+      <div style="font:400 13px/1 'Barlow',sans-serif;letter-spacing:.16em;color:#8A3B12">02.2</div>
+      <h2 style="margin-top:14px;font:400 26px/1.25 'Spectral',serif">Budget über mehrere Jahre</h2>
+      <p style="margin-top:12px;max-width:48ch;font:400 15px/1.8 'Barlow',sans-serif">Maßnahmen auf Jahre verteilt, mit Kostenbandbreiten und Abhängigkeiten — die Grundlage für Beschlüsse in der Eigentümerversammlung.</p>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:4fr 8fr;gap:56px;padding:72px 64px;border-top:1px solid #17171A">
+    <div style="font:500 11px/1.6 'Barlow',sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#4A5D3C">Anfrage mit Objektdaten</div>
+    <div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px">
+        <div style="border-bottom:1px solid #17171A;padding-bottom:8px;font:400 16px/1 'Barlow',sans-serif;color:rgba(23,23,26,.7)">Verwaltung oder Eigentümer</div>
+        <div style="border-bottom:1px solid #17171A;padding-bottom:8px;font:400 16px/1 'Barlow',sans-serif;color:rgba(23,23,26,.7)">Anzahl Einheiten</div>
+        <div style="border-bottom:1px solid #17171A;padding-bottom:8px;font:400 16px/1 'Barlow',sans-serif;color:rgba(23,23,26,.7)">Ort</div>
+        <div style="border-bottom:1px solid #17171A;padding-bottom:8px;font:400 16px/1 'Barlow',sans-serif;color:rgba(23,23,26,.7)">Anlass</div>
+      </div>
+      <a href="#08" style="display:inline-block;margin-top:34px;padding:12px 20px;border:1px solid #17171A;font:500 12px/1 'Barlow',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#17171A" style-hover="background:#17171A;color:#F7F5F0">Anfrage senden</a>
+    </div>
+  </div>
+
+  <div style="display:flex;align-items:baseline;justify-content:space-between;gap:40px;padding:26px 64px;background:#E8E2D6">
+    <div style="font:500 12px/1 'Barlow',sans-serif;letter-spacing:.24em;text-transform:uppercase">Gehrke Bauberatung und Betreuung</div>
+    <div style="font:400 12px/1 'Barlow',sans-serif;letter-spacing:.14em;text-transform:uppercase">Stauferstraße 122 · 74632 Neuenstein</div>
+  </div>
+</div>
+</div>
+
+<div>
+<div class="pglabel"><span class="pgnum">06</span><span>Über Jürgen Gehrke — Bildseite</span></div>
+<div class="pg" data-screen-label="06 Ueber">
+
+  <div style="display:flex;align-items:baseline;gap:36px;padding:30px 64px 22px">
+    <div style="font:500 12px/1 'Barlow',sans-serif;letter-spacing:.28em;text-transform:uppercase">Gehrke — Bauberatung und Betreuung</div>
+    <div style="flex:1;height:1px;background:#17171A"></div>
+    <div style="font:400 12px/1 'Barlow',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8A3B12">Über mich</div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:5fr 7fr;gap:0;margin-top:40px">
+    <img src="uploads/juergen-gehrke.jpg" alt="Jürgen Gehrke, Inhaber der Gehrke Bauberatung und Betreuung" style="display:block;width:100%;height:520px;object-fit:cover;object-position:center 18%">
+    <div style="padding:0 64px">
+      <div style="font:500 11px/1 'Barlow',sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#4A5D3C">Aufnahme 01 — Herkunft</div>
+      <h1 style="margin-top:22px;max-width:24ch;font-family:'Spectral',serif;font-weight:300;font-size:48px;line-height:1.14;letter-spacing:-.01em">Angefangen im Holzbau, geblieben am Bau.</h1>
+      <p style="margin-top:26px;max-width:54ch;font:300 18px/1.8 'Spectral',serif">Wer selbst Balken zugeschnitten hat, erkennt an einem Gefüge, was gehalten hat und was nachgegeben hat. Diese Herkunft ist der Grund, weshalb ich Bauherren nicht nach Katalog berate.</p>
+      <div style="display:grid;grid-template-columns:auto 1fr;column-gap:40px;margin-top:38px;border-top:1px solid #17171A">
+        <div style="padding:18px 0;font:400 13px/1 'Barlow',sans-serif;letter-spacing:.16em;color:#8A3B12">seit 1998</div>
+        <div style="padding:18px 0;border-bottom:1px solid rgba(23,23,26,.2);font:400 15px/1.6 'Barlow',sans-serif">Tätigkeit am Bau, Holzbau und Bestandssanierung</div>
+        <div style="padding:18px 0;font:400 13px/1 'Barlow',sans-serif;letter-spacing:.16em;color:#8A3B12">1 : 1</div>
+        <div style="padding:18px 0;border-bottom:1px solid rgba(23,23,26,.2);font:400 15px/1.6 'Barlow',sans-serif">Ein Berater, kein Team, keine Weitergabe an Dritte</div>
+        <div style="padding:18px 0;font:400 13px/1 'Barlow',sans-serif;letter-spacing:.16em;color:#8A3B12">Region</div>
+        <div style="padding:18px 0;font:400 15px/1.6 'Barlow',sans-serif">Kreis Hohenlohe, Schwäbisch Hall, angrenzende Gemeinden</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:3fr 9fr;gap:56px;padding:72px 64px;background:#E8E2D6;margin-top:72px">
+    <div style="font:500 11px/1.6 'Barlow',sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#4A5D3C">Haltung</div>
+    <div>
+      <p style="max-width:36ch;font:300 italic 32px/1.4 'Spectral',serif">„Ein Fachwerkhaus verzeiht viel — nur keine falsche Dämmung.“</p>
+      <p style="margin-top:28px;max-width:70ch;font:400 15px/1.8 'Barlow',sans-serif">Ich empfehle keine Maßnahme, an der ich verdiene, und keine Firma, die mir etwas schuldet. Meine Vergütung hängt nicht am Bauvolumen, sondern an der aufgewendeten Zeit.</p>
+    </div>
+  </div>
+
+  <div style="display:flex;align-items:baseline;justify-content:space-between;gap:40px;padding:26px 64px;border-top:1px solid #17171A">
+    <div style="font:500 12px/1 'Barlow',sans-serif;letter-spacing:.24em;text-transform:uppercase">Gehrke Bauberatung und Betreuung</div>
+    <div style="display:flex;gap:24px;font:400 12px/1 'Barlow',sans-serif;letter-spacing:.14em;text-transform:uppercase"><a href="#08" style="color:#17171A">Kontakt</a><a href="#09" style="color:#17171A">Impressum</a></div>
+  </div>
+</div>
+</div>
+
+<div>
+<div class="pglabel"><span class="pgnum">08</span><span>Kontakt und Anfrage — Formularseite</span></div>
+<div class="pg" data-screen-label="08 Kontakt">
+
+  <div style="display:flex;align-items:baseline;gap:36px;padding:30px 64px 22px">
+    <div style="font:500 12px/1 'Barlow',sans-serif;letter-spacing:.28em;text-transform:uppercase">Gehrke — Bauberatung und Betreuung</div>
+    <div style="flex:1;height:1px;background:#17171A"></div>
+    <div style="font:400 12px/1 'Barlow',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8A3B12">Kontakt</div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:7fr 5fr;gap:56px;padding:64px 64px 0;align-items:start">
+    <div>
+      <div style="font:500 11px/1 'Barlow',sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#4A5D3C">Aufnahme 01 — Anfrage</div>
+      <h1 style="margin-top:22px;max-width:24ch;font-family:'Spectral',serif;font-weight:300;font-size:54px;line-height:1.14;letter-spacing:-.01em">Sagen Sie mir, um welches Haus es geht.</h1>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:34px 40px;margin-top:44px">
+        <div style="border-bottom:1px solid #17171A;padding-bottom:8px"><div style="font:500 11px/1 'Barlow',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:rgba(23,23,26,.6)">Name</div><div style="margin-top:10px;font:400 16px/1 'Barlow',sans-serif;color:rgba(23,23,26,.7)">Vor- und Nachname</div></div>
+        <div style="border-bottom:1px solid #17171A;padding-bottom:8px"><div style="font:500 11px/1 'Barlow',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:rgba(23,23,26,.6)">Telefon</div><div style="margin-top:10px;font:400 16px/1 'Barlow',sans-serif;color:rgba(23,23,26,.7)">für den Rückruf</div></div>
+        <div style="border-bottom:1px solid #17171A;padding-bottom:8px"><div style="font:500 11px/1 'Barlow',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:rgba(23,23,26,.6)">Ort des Objekts</div><div style="margin-top:10px;font:400 16px/1 'Barlow',sans-serif;color:rgba(23,23,26,.7)">Gemeinde genügt</div></div>
+        <div style="border-bottom:1px solid #17171A;padding-bottom:8px"><div style="font:500 11px/1 'Barlow',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:rgba(23,23,26,.6)">Anlass</div><div style="margin-top:10px;font:400 16px/1 'Barlow',sans-serif;color:rgba(23,23,26,.7)">Kauf, Sanierung, Umbau, Neubau</div></div>
+      </div>
+      <div style="margin-top:34px;border-bottom:1px solid #17171A;padding-bottom:8px"><div style="font:500 11px/1 'Barlow',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:rgba(23,23,26,.6)">Was soll ich mir ansehen</div><div style="margin-top:10px;font:400 16px/1.6 'Barlow',sans-serif;color:rgba(23,23,26,.7)">Baujahr, Größe, bekannte Mängel, Termindruck</div></div>
+      <div style="display:flex;align-items:center;gap:28px;margin-top:36px">
+        <a href="#08" style="display:inline-block;padding:14px 24px;border:1px solid #17171A;font:500 12px/1 'Barlow',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#17171A" style-hover="background:#17171A;color:#F7F5F0">Anfrage senden</a>
+        <span style="font:400 14px/1.6 'Barlow',sans-serif;max-width:34ch">Ich antworte innerhalb von 24 Stunden, in der Regel telefonisch.</span>
+      </div>
+    </div>
+    <div>
+      <div style="border-top:1px solid #17171A;padding-top:20px;font:400 15px/1.9 'Barlow',sans-serif">
+        <div style="font:500 11px/1 'Barlow',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#4A5D3C;margin-bottom:14px">Direkt</div>
+        Gehrke Bauberatung und Betreuung<br>Stauferstraße 122<br>74632 Neuenstein<br><br>Telefon und E-Mail bitte ergänzen<br><span style="color:#8A3B12">Termin nach Vereinbarung</span>
+      </div>
+      <img src="uploads/bauberatung-begehung.jpg" alt="Ortsbegehung mit Aufmaß im Bestand" style="display:block;width:100%;height:260px;object-fit:cover;margin-top:32px">
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:3fr 9fr;gap:56px;padding:64px;background:#E8E2D6;margin-top:80px">
+    <div style="font:500 11px/1.6 'Barlow',sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#4A5D3C">Einsatzgebiet</div>
+    <div style="font:400 15px/1.85 'Barlow',sans-serif;max-width:80ch">Neuenstein, Öhringen, Künzelsau, Waldenburg, Bretzfeld, Schwäbisch Hall, Ilshofen, Langenburg und angrenzende Gemeinden. Außerhalb dieses Gebiets auf Anfrage.</div>
+  </div>
+
+  <div style="display:flex;align-items:baseline;justify-content:space-between;gap:40px;padding:26px 64px;border-top:1px solid #17171A">
+    <div style="font:500 12px/1 'Barlow',sans-serif;letter-spacing:.24em;text-transform:uppercase">Gehrke Bauberatung und Betreuung</div>
+    <div style="display:flex;gap:24px;font:400 12px/1 'Barlow',sans-serif;letter-spacing:.14em;text-transform:uppercase"><a href="#09" style="color:#17171A">Impressum</a><a href="#09" style="color:#17171A">Datenschutz</a></div>
+  </div>
+</div>
+</div>
+
+<div>
+<div class="pglabel"><span class="pgnum">10</span><span>Mobil 390 px — Startseite, gleiches Motiv, einspaltig</span></div>
+<div style="width:390px;background:#F7F5F0;color:#17171A" data-screen-label="10 Mobil">
+  <div style="display:flex;align-items:baseline;gap:14px;padding:18px 20px 14px;border-bottom:1px solid #17171A">
+    <div style="font:500 10px/1.3 'Barlow',sans-serif;letter-spacing:.2em;text-transform:uppercase">Gehrke<br>Bauberatung</div>
+    <div style="flex:1"></div>
+    <div style="font:500 11px/1 'Barlow',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8A3B12">Menü</div>
+  </div>
+  <div style="padding:36px 20px 0">
+    <div style="font:500 10px/1 'Barlow',sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#4A5D3C">Aufnahme 01</div>
+    <h1 style="margin-top:16px;font-family:'Spectral',serif;font-weight:300;font-size:34px;line-height:1.16;letter-spacing:-.01em">Jede Begehung endet schriftlich.</h1>
+    <p style="margin-top:18px;font:300 17px/1.75 'Spectral',serif">Was aufgenommen wurde, was zu tun ist und was es kostet — schriftlich, nach jeder Begehung.</p>
+    <a href="#10" style="display:inline-block;margin-top:24px;padding-bottom:7px;border-bottom:1px solid #8A3B12;font:500 12px/1 'Barlow',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#8A3B12">Begehung anfragen</a>
+  </div>
+  <img src="uploads/juergen-gehrke-beratung-fachwerk.png" alt="Jürgen Gehrke erklärt ein saniertes Fachwerkfenster" style="display:block;width:100%;height:230px;object-fit:cover;margin-top:32px">
+  <div style="padding:32px 20px 0">
+    <div style="height:1px;background:#17171A"></div>
+    <div style="padding:18px 0;border-bottom:1px solid rgba(23,23,26,.2)"><div style="font:400 12px/1 'Barlow',sans-serif;letter-spacing:.16em;color:#8A3B12">02.1</div><div style="margin-top:8px;font:400 22px/1.25 'Spectral',serif">Beratung vor dem Kauf</div></div>
+    <div style="padding:18px 0;border-bottom:1px solid rgba(23,23,26,.2)"><div style="font:400 12px/1 'Barlow',sans-serif;letter-spacing:.16em;color:#8A3B12">02.2</div><div style="margin-top:8px;font:400 22px/1.25 'Spectral',serif">Baubetreuung im Bestand</div></div>
+    <div style="padding:18px 0;border-bottom:1px solid rgba(23,23,26,.2)"><div style="font:400 12px/1 'Barlow',sans-serif;letter-spacing:.16em;color:#8A3B12">02.3</div><div style="margin-top:8px;font:400 22px/1.25 'Spectral',serif">Fachwerk und Sanierung</div></div>
+    <div style="padding:18px 0;border-bottom:1px solid #17171A"><div style="font:400 12px/1 'Barlow',sans-serif;letter-spacing:.16em;color:#8A3B12">02.4</div><div style="margin-top:8px;font:400 22px/1.25 'Spectral',serif">Verwaltungen und Investoren</div></div>
+  </div>
+  <div style="padding:28px 20px 32px;background:#E8E2D6;margin-top:32px;font:400 14px/1.85 'Barlow',sans-serif">
+    <div style="font:500 10px/1 'Barlow',sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#4A5D3C;margin-bottom:14px">Kontakt</div>
+    Stauferstraße 122, 74632 Neuenstein<br><span style="color:#8A3B12">Rückruf am selben Tag</span>
+  </div>
+</div>
+</div>
+
+</div>
+
+</x-dc>
+</body>
+</html>
