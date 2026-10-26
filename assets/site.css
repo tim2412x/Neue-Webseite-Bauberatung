@@ -59,8 +59,8 @@
   --serif:Spectral,Georgia,"Times New Roman",serif;
   --grotesk:Barlow,"Helvetica Neue",Arial,sans-serif;
 
-  --satz:1180px;            /* Satzspiegel */
-  --rand:64px;              /* Aussenrand */
+  --satz:1440px;            /* Satzspiegel */
+  --rand:72px;              /* Aussenrand */
   --spalte-gap:56px;
   --radius:0;
 
@@ -70,6 +70,13 @@
      Titelgroesse, hier nachziehen. */
   --ziffer-versatz-mobil:12px;
   --ziffer-versatz-mobil-eng:10px;
+
+  /* Randmarke (Strich statt Ordnungsziffer). Die Hebung setzt den Strich auf
+     die Mitte der ersten Zeile — gemessen an h2 28px und Listentitel 20px.
+     Aendert sich die Titelgroesse, hier nachziehen. */
+  --marke-breite:34px;
+  --marke-hebung:8px;
+  --marke-versatz-mobil:15px;
 }
 
 /* --- 3. Grundlagen ------------------------------------------------------ */
@@ -97,6 +104,9 @@ a,button,input,select,textarea,.cta-2{
 img{display:block;max-width:100%;border-radius:var(--radius)}
 
 h1,h2,h3,h4,h5,h6,p,figure,blockquote,dl,dd{margin:0}
+/* <address> traegt Kontaktdaten, keine Betonung — die Kursive des Browsers
+   ist im Motiv dem Zitat vorbehalten. */
+address{font-style:normal}
 ul,ol{margin:0;padding:0;list-style:none}
 
 /* Fokus immer sichtbar (REDESIGN §14). Nie outline:none. */
@@ -121,16 +131,23 @@ select:focus-visible,textarea:focus-visible,summary:focus-visible{
 
 /* --- 4. Satzspiegel und Abschnittsrhythmus (REDESIGN §8) ---------------- */
 
-.seite{max-width:var(--satz);margin:0 auto}
+/* Die Seite selbst ist unbegrenzt — den Satzspiegel haelt .bahn. So koennen
+   Flaechenton-Baender und Bildbaender ueber die volle Breite laufen, waehrend
+   der Text auf dem Satzspiegel bleibt. */
+.seite{width:100%}
 
 /* Innenbereich mit Aussenrand. Fuer randlose Baender NICHT verwenden. */
-.bahn{padding-left:var(--rand);padding-right:var(--rand)}
+.bahn{
+  max-width:var(--satz);margin-left:auto;margin-right:auto;
+  padding-left:var(--rand);padding-right:var(--rand);
+}
 
 /* Abstand zwischen Abschnitten: 96–104px */
 .abstand-96{margin-top:96px}
 .abstand-104{margin-top:104px}
 .abstand-80{margin-top:80px}
 .abstand-64{margin-top:64px}
+.abstand-24{margin-top:24px}
 
 /* Senkrechter Rhythmus innerhalb einer Spalte (REDESIGN §8: 26–34px).
    .stapel setzen, statt Abstaende einzeln zu vergeben. */
@@ -144,10 +161,11 @@ select:focus-visible,textarea:focus-visible,summary:focus-visible{
    64px, wenn keine Marke mehr darueber steht (REDESIGN §3, Regel 3). */
 .hero{padding-top:64px}
 
-/* Flaechenton-Block. Laeuft ueber die volle Satzbreite, Innenabstand eigen. */
+/* Flaechenton-Block. Laeuft randlos ueber die volle Breite; der Inhalt darin
+   steht in einer .bahn und bleibt damit auf dem Satzspiegel. */
 .flaeche{
   background:var(--flaeche);
-  padding:72px var(--rand);
+  padding:84px 0;
   /* Auf dem Flaechenton faellt ein Label mit 60% Deckung auf 4,29:1 und damit
      unter die Grenze von 4,5:1 (REDESIGN §14 misst nur gegen den Grundton).
      Auf dieser Flaeche deshalb 66% — staerker, nie schwaecher: 5,16:1. */
@@ -176,32 +194,34 @@ select:focus-visible,textarea:focus-visible,summary:focus-visible{
 /* --- 6. Typografie (REDESIGN §7) ---------------------------------------- */
 
 h1,.t-h1{
-  font:300 54px/1.14 var(--serif);
+  font:300 46px/1.15 var(--serif);
   letter-spacing:-.01em;max-width:26ch;text-wrap:pretty;
 }
-.t-h1-klein{font-size:48px}          /* Ueber-Seite */
+.t-h1-klein{font-size:40px}          /* Ueber-Seite */
 
-h2,.t-h2{font:400 30px/1.2 var(--serif);text-wrap:pretty}
-h3,.t-h3{font:400 26px/1.25 var(--serif);text-wrap:pretty}
-h4,h5,h6,.t-listentitel{font:300 22px/1.35 var(--serif)}
+h2,.t-h2{font:400 28px/1.25 var(--serif);text-wrap:pretty}
+h3,.t-h3{font:400 22px/1.35 var(--serif);text-wrap:pretty}
+h4,h5,h6,.t-listentitel{font:400 20px/1.4 var(--serif)}
 
 /* Vorspann — der erste Absatz unter der Ueberschrift. */
-.vorspann{font:300 19px/1.8 var(--serif);max-width:56ch}
+.vorspann{font:300 18px/1.8 var(--serif);max-width:58ch}
 
 /* Fliesstext */
 p{max-width:70ch}
 .fliess{font:300 17px/1.75 var(--serif);max-width:70ch}
 .fliess-gross{font:300 18px/1.8 var(--serif);max-width:70ch}
-.fliess-grotesk{font:400 15px/1.8 var(--grotesk);color:var(--text-2);max-width:64ch}
-.fliess-grotesk-eng{font:400 15px/1.75 var(--grotesk);max-width:64ch}
+.fliess-grotesk{font:400 16px/1.75 var(--grotesk);color:var(--text-2);max-width:64ch}
+.fliess-grotesk-eng{font:400 16px/1.7 var(--grotesk);max-width:64ch}
 
 /* Zitat */
-.zitat{font:300 italic 34px/1.4 var(--serif);max-width:34ch}
-.zitat-klein{font-size:32px;max-width:36ch}
+.zitat{font:300 italic 26px/1.45 var(--serif);max-width:36ch}
+.zitat-klein{font:300 italic 20px/1.65 var(--serif);max-width:52ch}
 .zitat-quelle{
   margin-top:28px;font:500 12px/1 var(--grotesk);
   letter-spacing:.24em;text-transform:uppercase;
 }
+/* Rolle unter dem Namen einer Kundenstimme. */
+.zitat-rolle{margin-top:8px;font:400 14px/1.5 var(--grotesk);color:var(--text-2)}
 
 /* Randziffer — dekorativ. Im Markup immer <span class="ziffer" aria-hidden="true">. */
 .ziffer{
@@ -209,6 +229,19 @@ p{max-width:70ch}
   letter-spacing:.16em;color:var(--akzent);
   white-space:nowrap;
 }
+
+/* Randmarke als Strich statt Ordnungsziffer: derselbe Platz, dieselbe
+   Grundlinienlogik, nur ohne Nummer. Der Span bleibt leer — ein leerer
+   inline-block legt seine Grundlinie auf die untere Aussenkante, die Hebung
+   schiebt den Strich von dort auf die Mitte der ersten Zeile.
+   Lange Marke = Abschnitt, kurze Marke = Unterpunkt. */
+.ziffer--strich{
+  display:inline-block;
+  width:var(--marke-breite);height:1px;
+  margin-bottom:var(--marke-hebung);
+  background:var(--akzent);
+}
+.ziffer--klein{--marke-breite:16px;--marke-hebung:6px}
 
 /* Bildlegende */
 .legende{
@@ -226,7 +259,7 @@ p{max-width:70ch}
 
 /* Randnotiz an senkrechter Linie (9/3 und 3/9). */
 .randnotiz{
-  font:400 14px/1.8 var(--grotesk);
+  font:400 15px/1.8 var(--grotesk);
   border-left:1px solid var(--linie);padding-left:20px;
 }
 
@@ -244,6 +277,15 @@ p{max-width:70ch}
 */
 
 .gruppe{border-top:1px solid var(--linie)}
+
+/* Alle Abschnitte einer Gruppe teilen sich dieselbe Ziffernspalte. Ohne das
+   bemisst jeder Abschnitt seine auto-Spalte selbst und die Protokolllinie
+   bekommt eine ausgefranste Kante, sobald die Randziffern ungleich breit sind
+   ("30+" neben "Vor Ort"). Ohne Subgrid bleibt es beim bisherigen Verhalten. */
+@supports (grid-template-columns:subgrid){
+  .gruppe{display:grid;grid-template-columns:auto 1fr;column-gap:var(--spalte-gap)}
+  .gruppe>.abschnitt{grid-column:1/-1;grid-template-columns:subgrid}
+}
 
 .abschnitt{
   display:grid;
@@ -267,39 +309,70 @@ p{max-width:70ch}
 .inhalt>*+*{margin-top:12px}
 .inhalt>h2+p,.inhalt>h3+p{margin-top:12px}
 
-/* Zeile innerhalb eines Abschnitts: Begriff | Erlaeuterung (5/7). */
+/* Zeile innerhalb eines Abschnitts: Titel links, Text rechts. Das ist das
+   durchgehende Zeilenraster der Seite — jede Zeile mit Titel traegt es. */
 .zeile-5-7{
-  display:grid;grid-template-columns:5fr 7fr;gap:40px;align-items:baseline;
+  display:grid;grid-template-columns:5fr 7fr;gap:48px;align-items:baseline;
 }
 .zeile-5-7>*{margin-top:0}
+
+/* Zeile aus Wert und Beschriftung ("30+ Jahre Erfahrung"). Die beiden gehoeren
+   zusammen und stehen dicht beieinander — im 5/7-Raster klaffte dazwischen
+   auf breiten Schirmen ein Loch. */
+.zeile-wert{display:flex;align-items:baseline;gap:24px;flex-wrap:wrap}
+.zeile-wert>*{margin-top:0}
+.zeile-wert .t-listentitel{min-width:96px}
 
 /* --- 8. Kopf und Navigation (REDESIGN §10) ------------------------------ */
 
 .kopf{
-  display:flex;align-items:baseline;gap:36px;
-  padding:30px var(--rand) 22px;
+  display:flex;align-items:center;gap:32px;
+  padding:24px var(--rand) 20px;
   max-width:var(--satz);margin:0 auto;
 }
+/* Bildmarke im Kopf. logo-text.png ist die weisse Wortmarke aus
+   logo-dark.png, umgefaerbt auf den Textton — kein Blaustich, kein Rand.
+   Neu erzeugen mit: python3 _design/tools/logo_umfaerben.py */
+.kopf-logo{display:block;flex:none}
+.kopf-logo img{height:44px;width:auto}
 .wortmarke{
   font:500 12px/1 var(--grotesk);
   letter-spacing:.28em;text-transform:uppercase;color:var(--text);
   text-decoration:none;
 }
 .wortmarke:hover{color:var(--akzent)}
-.kopf-linie{flex:1 1 0;min-width:48px;height:1px;background:var(--linie)}
-/* Die Kopfzeile ist eng: Wortmarke 188px + Navigation 644px + Abstaende passen
-   bei 1180px Satzspiegel mit ~128px Haarlinie. min-width haelt die Linie
-   sichtbar, falls ein Navigationspunkt dazukommt — dann Nav kuerzen, nicht
-   die Sperrung reduzieren. */
+/* Die Haarlinie zwischen Marke und Navigation ist entfallen. Der Abstand
+   allein traegt die Trennung, die Zeile bleibt ruhiger. */
 
 .nav{
-  display:flex;gap:26px;
+  display:flex;align-items:center;gap:30px;
+  margin-left:auto;
   font:400 12px/1 var(--grotesk);
   letter-spacing:.16em;text-transform:uppercase;
 }
+/* Kein Navigationspunkt bricht um — sonst sitzt die Zeile auf zwei Hoehen. */
+.nav a{white-space:nowrap}
 .nav a{color:var(--text);text-decoration:none}
 .nav a:hover{color:var(--akzent)}
 .nav a[aria-current="page"],.nav .aktiv{color:var(--akzent)}
+
+/* Leistungen-Aufklappliste: rein ueber :hover und :focus-within, kein Skript,
+   keine Einblendung. Mit der Tastatur oeffnet sie sich beim Hineintabben. */
+.nav-punkt{position:relative;display:flex;align-items:center}
+.nav-pfeil{margin-left:5px;font-size:9px}
+.nav-unter{
+  display:none;position:absolute;top:100%;left:-18px;z-index:30;
+  min-width:230px;padding:14px 18px;
+  background:var(--grund);border:1px solid var(--linie);
+}
+.nav-punkt:hover .nav-unter,.nav-punkt:focus-within .nav-unter{display:block}
+.nav-unter a{
+  display:block;padding:8px 0;white-space:nowrap;
+  font:400 14px/1.4 var(--grotesk);letter-spacing:.02em;text-transform:none;
+}
+
+/* Handlungsaufforderung im Kopf, etwas kompakter als im Inhalt. */
+.kopf .cta{padding:12px 18px;font-size:12px;letter-spacing:.14em}
 
 /* Unterseiten: Seitenname in Akzent statt Navigation (REDESIGN §10). */
 .kopf-seitenname{
@@ -337,6 +410,8 @@ p{max-width:70ch}
 }
 .menue-liste a:last-child{border-bottom-color:var(--linie)}
 .menue-liste .ziffer{flex:none}
+/* Untergeordnete Menuepunkte (Leistungen) — eingerueckt wie im Bestand. */
+.menue-liste .menue-unter{padding-left:22px;font-size:20px}
 
 /* --- 9. Bausteine und Zustaende (REDESIGN §9) --------------------------- */
 
@@ -346,27 +421,32 @@ p{max-width:70ch}
 a{color:var(--akzent);text-underline-offset:3px;text-decoration-thickness:1px}
 a:hover{color:var(--text)}
 
+/* Primaer: gefuellte Flaeche im Textton. Der Akzent als Flaeche war zu laut —
+   er bleibt der Farbe fuer Marken, Linien und Verweise vorbehalten und kommt
+   hier erst beim Ueberfahren. Grundton auf Textton misst 16,42:1. */
 .cta{
-  display:inline-block;
-  padding-bottom:7px;border-bottom:1px solid var(--akzent);
+  display:inline-flex;align-items:center;gap:10px;
+  padding:15px 26px;
+  background:var(--text);border:1px solid var(--text);border-radius:var(--radius);
   font:500 13px/1 var(--grotesk);
-  letter-spacing:.2em;text-transform:uppercase;
-  color:var(--akzent);text-decoration:none;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--grund);text-decoration:none;cursor:pointer;
 }
-.cta:hover{color:var(--text);border-bottom-color:var(--text)}
+.cta:hover{background:var(--akzent);border-color:var(--akzent);color:var(--grund)}
 
 /* Textlink im Fliesstext eines Abschnitts, etwas kleiner. */
 .cta-text{
   display:inline-block;
-  font:500 12px/1 var(--grotesk);
-  letter-spacing:.18em;text-transform:uppercase;
+  padding-bottom:5px;border-bottom:1px solid var(--akzent);
+  font:500 13px/1 var(--grotesk);
+  letter-spacing:.14em;text-transform:uppercase;
   color:var(--akzent);text-decoration:none;
 }
-.cta-text:hover{color:var(--text)}
+.cta-text:hover{color:var(--text);border-bottom-color:var(--text)}
 
 /* Sekundaere Handlungsaufforderung */
 .cta-2{
-  display:inline-block;
+  display:inline-flex;align-items:center;gap:10px;
   padding:14px 24px;border:1px solid var(--text);border-radius:var(--radius);
   font:500 12px/1 var(--grotesk);
   letter-spacing:.18em;text-transform:uppercase;
@@ -376,7 +456,11 @@ a:hover{color:var(--text)}
 
 /* Zeile aus Handlungsaufforderung + Zusatz ("Rueckruf am selben Tag") */
 .cta-zeile{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
-.cta-zusatz{font:400 14px/1.6 var(--grotesk);max-width:34ch}
+.cta-zusatz{font:400 15px/1.6 var(--grotesk);max-width:34ch}
+
+/* Sinnbild in einer Handlungsaufforderung (WhatsApp). Nimmt die Schriftfarbe
+   an, damit es beim Ueberfahren mitwechselt. */
+.symbol{width:18px;height:18px;flex:none;fill:currentColor}
 
 /* --- 10. Bilder --------------------------------------------------------- */
 
@@ -385,12 +469,20 @@ a:hover{color:var(--text)}
 .bild-400{height:400px}     /* randloses Band */
 .bild-360{height:360px}     /* Leistungsseite Einleitung */
 .bild-520{height:520px}     /* Portraet Ueber-Seite */
+.bild-640{height:640px}     /* Portraet in einer schmalen Spalte */
 .bild-260{height:260px}     /* Kontaktseite */
+/* Ohne festen Zuschnitt: das Bild behaelt sein eigenes Seitenverhaeltnis.
+   Fuer Portraets besser als eine feste Hoehe — es entsteht kein willkuerlicher
+   Anschnitt und kein heller Streifen am Rand. */
+.bild-frei{width:100%;height:auto}
 .bild-oben{object-position:center 18%}
 .bild-mitte{object-position:center 45%}
+.bild-gesicht{object-position:center 22%}
 
-/* Randloses Band: bricht bewusst aus dem Aussenrand aus. */
-.band{margin-left:0;margin-right:0}
+/* Randloses Band ueber die volle Breite. Die Deckelung verhindert, dass die
+   1100 px breite Vorlage auf sehr grossen Schirmen hochskaliert wird. */
+.band{max-width:1920px;margin-left:auto;margin-right:auto}
+.band .legende{max-width:var(--satz);margin-left:auto;margin-right:auto}
 
 /* --- 11. Ablaufband: vier Schritte in einer Zeile ----------------------- */
 /* Kein Kartenraster — nur Haarlinien. Vier Spalten sind erlaubt, weil es
@@ -404,11 +496,11 @@ a:hover{color:var(--text)}
 .ablauf>*{padding:24px;border-right:1px solid var(--linie-fein)}
 .ablauf>*:first-child{padding-left:0}
 .ablauf>*:last-child{padding-right:0;border-right:0}
-.ablauf-titel{margin-top:12px;font:300 20px/1.35 var(--serif)}
+.ablauf-titel{margin-top:12px;font:400 20px/1.4 var(--serif)}
 
 /* --- 12. Tabelle (Verwaltungen, Honorar) -------------------------------- */
 
-.tabelle{width:100%;border-collapse:collapse;font:400 15px/1.75 var(--grotesk)}
+.tabelle{width:100%;border-collapse:collapse;font:400 16px/1.75 var(--grotesk)}
 .tabelle th,.tabelle td{
   padding:14px 0;text-align:left;
   border-bottom:1px solid var(--linie-fein);
@@ -475,15 +567,41 @@ a:hover{color:var(--text)}
 /* --- 14. Fuss ----------------------------------------------------------- */
 
 .fuss{
-  display:flex;align-items:baseline;justify-content:space-between;gap:40px;
-  flex-wrap:wrap;
   max-width:var(--satz);margin:88px auto 0;
-  padding:26px var(--rand);
+  padding:40px var(--rand) 26px;
   border-top:1px solid var(--linie);
 }
+/* Drei ungleiche Spalten — Marke breit, zwei Linkspalten schmal. Kein
+   Merkmalsraster im Sinn von REDESIGN §8, sondern ein Verzeichnis. */
+.fuss-raster{
+  display:grid;grid-template-columns:5fr 3.5fr 3.5fr;
+  column-gap:var(--spalte-gap);row-gap:36px;
+}
+.fuss-logo{height:40px;width:auto;margin-bottom:20px}
 .fuss-marke{
   font:500 12px/1 var(--grotesk);
   letter-spacing:.24em;text-transform:uppercase;
+}
+.fuss-text{font:400 15px/1.75 var(--grotesk);color:var(--text-2);max-width:34ch}
+.fuss-titel{
+  font:500 11px/1 var(--grotesk);
+  letter-spacing:.18em;text-transform:uppercase;color:var(--label);
+  margin-bottom:18px;
+}
+.fuss-spalte a{
+  display:block;padding:7px 0;
+  font:400 15px/1.5 var(--grotesk);
+  color:var(--text);text-decoration:none;
+}
+.fuss-spalte a:hover{color:var(--akzent)}
+.fuss-spalte address{margin-top:16px;font:400 15px/1.75 var(--grotesk);color:var(--text-2)}
+.fuss-unten{
+  display:flex;align-items:baseline;justify-content:space-between;
+  gap:32px;flex-wrap:wrap;
+  margin-top:44px;padding-top:22px;
+  border-top:1px solid var(--linie-fein);
+  font:400 12px/1.6 var(--grotesk);
+  letter-spacing:.06em;color:var(--text-2);
 }
 .fuss-links{
   display:flex;gap:24px;flex-wrap:wrap;
@@ -497,9 +615,9 @@ a:hover{color:var(--text)}
 /* --- 15. Rechtstexte (Impressum, Datenschutz, AGB) ---------------------- */
 /* Einspaltig 9/3, Fliesstext Barlow 15/1.85, Randziffern als Paragraphennummern. */
 
-.rechtstext{font:400 15px/1.85 var(--grotesk)}
-.rechtstext h2{font:400 26px/1.25 var(--serif)}
-.rechtstext h3{font:300 22px/1.35 var(--serif)}
+.rechtstext{font:400 16px/1.8 var(--grotesk)}
+.rechtstext h2{font:400 22px/1.35 var(--serif)}
+.rechtstext h3{font:400 20px/1.4 var(--serif)}
 .rechtstext p,.rechtstext li{max-width:80ch}
 .rechtstext ul{margin-top:12px}
 .rechtstext li{padding-left:20px;position:relative}
@@ -516,11 +634,12 @@ a:hover{color:var(--text)}
   display:block;padding:24px 0;cursor:pointer;
   font:400 22px/1.35 var(--serif);
 }
+.faq-antwort{font-size:16px}
 .faq summary::-webkit-details-marker{display:none}
 .faq summary::marker{content:""}
 .faq summary:hover{color:var(--akzent)}
 .faq details[open] summary{color:var(--akzent)}
-.faq-antwort{padding:0 0 28px;font:400 15px/1.8 var(--grotesk);max-width:76ch}
+.faq-antwort{padding:0 0 28px;font:400 16px/1.75 var(--grotesk);max-width:76ch}
 
 /* --- 17. Sterne einer Kundenstimme -------------------------------------- */
 /* Inhalt, keine Dekoration: die Bewertung gehoert zum Zitat. */
@@ -530,13 +649,26 @@ a:hover{color:var(--text)}
 }
 
 /* --- 18. Partnerlogos --------------------------------------------------- */
-/* Graustufig und gedaempft, damit die Fremdfarben das Motiv nicht brechen. */
+/* Graustufig und gedaempft, damit die Fremdfarben das Motiv nicht brechen.
+   Die fuenf Logos haben sehr verschiedene Seitenverhaeltnisse — eine feste
+   Hoehe allein laesst die breiten optisch erschlagen. Deshalb begrenzen
+   Hoehe UND Breite eine gemeinsame Box, in der jedes Logo frei sitzt. */
 
 .partner{
-  display:flex;flex-wrap:wrap;align-items:center;gap:48px;
-  padding-top:28px;border-top:1px solid var(--linie-fein);
+  display:grid;grid-template-columns:repeat(5,1fr);align-items:center;
+  gap:40px;
+  padding:38px 0;
+  border-top:1px solid var(--linie-fein);
+  border-bottom:1px solid var(--linie-fein);
 }
-.partner img{height:44px;width:auto;filter:grayscale(1);opacity:.75}
+.partner img{
+  max-height:46px;max-width:100%;width:auto;height:auto;
+  margin:0 auto;object-fit:contain;
+  /* Die Vorlagen sind JPEG mit weissem Grund. Multiplizieren laesst das Weiss
+     im Grundton verschwinden, sonst stehen fuenf helle Kaesten auf der Seite. */
+  mix-blend-mode:multiply;
+  filter:grayscale(1);opacity:.7;
+}
 
 /* --- 19. Mobil, 390px (REDESIGN §11) ------------------------------------ */
 
@@ -545,38 +677,57 @@ a:hover{color:var(--text)}
 
   body{font-size:16px}
 
-  h1,.t-h1,.t-h1-klein{font-size:34px;line-height:1.16;max-width:none}
-  h2,.t-h2{font-size:26px}
-  h3,.t-h3{font-size:22px}
+  h1,.t-h1,.t-h1-klein{font-size:32px;line-height:1.18;max-width:none}
+  h2,.t-h2{font-size:24px}
+  h3,.t-h3{font-size:20px}
+  h4,h5,h6,.t-listentitel{font-size:19px}
   .vorspann{font-size:17px;line-height:1.75;max-width:none}
-  .zitat,.zitat-klein{font-size:24px;max-width:none}
+  .zitat{font-size:22px;max-width:none}
+  .zitat-klein{font-size:18px;max-width:none}
+  .fliess-grotesk,.fliess-grotesk-eng{max-width:none}
 
   /* Alle Spaltenverhaeltnisse fallen auf eine Spalte. */
   .v,.v-7-5,.v-5-7,.v-9-3,.v-3-9,.v-4-8,.v-6-6,.v-auto-1{
     grid-template-columns:1fr;
   }
 
-  /* Randziffer steht VOR dem Titel in derselben Zeile, niemals darueber. */
+  /* Randziffer steht VOR dem Titel in derselben Zeile, niemals darueber.
+     Damit faellt auch die gemeinsame Ziffernspalte der Gruppe wieder weg. */
+  .gruppe{display:block}
   .abschnitt{display:block}
   .abschnitt>.ziffer{
     float:left;margin-right:12px;
     padding-top:calc(18px + var(--ziffer-versatz-mobil));
   }
   .abschnitt-eng>.ziffer{padding-top:calc(18px + var(--ziffer-versatz-mobil-eng))}
+  /* Der Strich braucht die Mitte der ersten Zeile, nicht die Grundlinie —
+     als Float traegt ihn kein align-items, deshalb der eigene Versatz. Der
+     geht ueber margin-top, nicht padding-top: Polster traegt die Farbe mit
+     und der Strich wuerde zum Balken. */
+  .abschnitt>.ziffer--strich{
+    width:22px;margin-bottom:0;padding-top:0;
+    margin-top:calc(18px + var(--marke-versatz-mobil));
+  }
+  .abschnitt>.ziffer--klein{width:14px;margin-top:calc(18px + 13px)}
   .abschnitt>.inhalt{padding:18px 0}
   .abschnitt-eng>.inhalt{padding:18px 0}
 
-  .zeile-5-7{grid-template-columns:1fr;gap:8px}
+  .zeile-5-7{grid-template-columns:1fr;gap:6px}
+  .zeile-wert{gap:14px}
+  .zeile-wert .t-listentitel{min-width:0}
 
-  .kopf{gap:14px;padding:18px var(--rand) 14px;border-bottom:1px solid var(--linie)}
-  .kopf-linie{display:none}
+  .kopf{gap:14px;padding:14px var(--rand);border-bottom:1px solid var(--linie)}
+  .kopf-logo img{height:30px}
   .wortmarke{font-size:10px;line-height:1.3;letter-spacing:.2em}
   .nav{display:none}
+  .kopf .cta{display:none}   /* steht im Hero und im Menue */
   .menue-knopf{display:block;margin-left:auto}
   .kopf-seitenname{margin-left:auto}
 
-  .flaeche{padding:28px var(--rand) 32px}
-  .fuss{margin-top:48px;padding:22px var(--rand);gap:18px}
+  .flaeche{padding:40px 0 44px}
+  .fuss{margin-top:48px;padding:32px var(--rand) 22px}
+  .fuss-raster{grid-template-columns:1fr;row-gap:30px}
+  .fuss-unten{margin-top:32px;gap:14px}
 
   .ablauf{grid-template-columns:1fr;border-top:1px solid var(--linie)}
   .ablauf>*{
@@ -587,15 +738,16 @@ a:hover{color:var(--text)}
   .feldpaar{grid-template-columns:1fr;gap:0}
   .feldpaar .feld{margin-top:28px}
 
-  .bild-430,.bild-400,.bild-360,.bild-520{height:230px}
+  .bild-430,.bild-400,.bild-360,.bild-520,.bild-640{height:230px}
+  .bild-frei{height:auto}
   .bild-260{height:200px}
 
   .abstand-104,.abstand-96{margin-top:56px}
   .abstand-80,.abstand-64{margin-top:40px}
 
   .randnotiz{border-left:0;border-top:1px solid var(--linie);padding:16px 0 0}
-  .partner{gap:28px}
-  .partner img{height:34px}
+  .partner{grid-template-columns:1fr 1fr;gap:26px 24px;padding:26px 0}
+  .partner img{max-height:30px}
 }
 
 /* --- 20. Druck ---------------------------------------------------------- */

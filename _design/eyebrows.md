@@ -16,12 +16,12 @@ Abschnitt fachlich Unterpunkte hat (Leistungen der Startseite), darf daraus
 
 | # | Bisherige Versalzeile | Folgende Ueberschrift | Neu | erledigt |
 |---|---|---|---|---|
-| 1 | Bauberatung & Baubetreuung · Schwäbisch Hall | `h1` Ihr Bauprojekt. Sicher und stressfrei von Anfang an. | **ersatzlos weg** — Seitenname steht im Kopf (`.kopf-seitenname`) | [ ] |
-| 2 | Leistungen | `h2` Was ich für Sie tue | Randziffer `01` | [ ] |
-| 3 | Warum Gehrke Bauberatung | `h2` Der Unterschied liegt in der Unabhängigkeit | Randziffer `02` | [ ] |
-| 4 | Kundenstimmen | `h2` Was Kunden sagen | Randziffer `03` | [ ] |
-| 5 | Referenzen | `h2` Ein Projekt, das für sich spricht | Randziffer `04` | [ ] |
-| 6 | Kontakt | `h2` Lassen Sie uns über Ihr Projekt sprechen | Randziffer `05` | [ ] |
+| 1 | Bauberatung & Baubetreuung · Schwäbisch Hall | `h1` Ihr Bauprojekt. Sicher und stressfrei von Anfang an. | **ersatzlos weg** — Seitenname steht im Kopf (`.kopf-seitenname`) | [x] |
+| 2 | Leistungen | `h2` Was ich für Sie tue | Randziffer `01` | [x] |
+| 3 | Warum Gehrke Bauberatung | `h2` Der Unterschied liegt in der Unabhängigkeit | Randziffer `02` | [x] |
+| 4 | Kundenstimmen | `h2` Was Kunden sagen | Randziffer `03` | [x] |
+| 5 | Referenzen | `h2` Ein Projekt, das für sich spricht | Randziffer `04` | [x] |
+| 6 | Kontakt | `h2` Lassen Sie uns über Ihr Projekt sprechen | Randziffer `05` | [x] |
 
 ### `bauberatung/index.html` — 10 Fundstellen
 
